@@ -197,247 +197,211 @@
 
   <!-- Filter Section -->
   <section class="relative py-8 bg-gradient-to-b from-blue-900/10 to-primary">
-    <div class="max-w-7xl mx-auto px-6" x-data="{ 
-            activeFilter: 'semua',
-            searchQuery: '',
-            cars: [
-  // ================= MPV (Keluarga / Favorit) =================
-  {
-    id: 1,
-    name: 'Daihatsu New Xenia',
-    type: 'MPV',
-    capacity: 7,
-    transmission: 'Matic',
-    price: '349K',
-    rating: 5.0,
-    popular: true,
-    image: '../images/xenia-hitam.jpg'
-  },
-  {
-    id: 2,
-    name: 'Toyota New Avanza',
-    type: 'MPV',
-    capacity: 7,
-    transmission: 'Matic',
-    price: '349K',
-    rating: 5.0,
-    popular: true,
-    image: '../images/new-avanza.png'
-  },
-  {
-    id: 3,
-    name: 'Toyota Calya',
-    type: 'MPV',
-    capacity: 7,
-    transmission: 'Manual/Matic',
-    price: '299K',
-    rating: 4.8,
-    popular: false,
-    image: '../images/calya.png'
-  },
-  {
-    id: 4,
-    name: 'Toyota Avanza',
-    type: 'MPV',
-    capacity: 7,
-    transmission: 'Matic',
-    price: '349K',
-    rating: 4.9,
-    popular: false,
-    image: '../images/avanza.png'
-  },
+    <div class="max-w-7xl mx-auto px-6" x-data="{
+      activeFilter: 'semua',
+      searchQuery: '',
+      cars: [
 
-  // ================= SUV =================
-  {
-    id: 5,
-    name: 'Daihatsu Rocky',
-    type: 'SUV',
-    capacity: 4,
-    transmission: 'Matic',
-    price: '299K',
-    rating: 5.0,
-    popular: false,
-    image: '../images/rocky-abu.jpg'
-  },
-  {
-    id: 6,
-    name: 'Daihatsu Rocky',
-    type: 'SUV',
-    capacity: 7,
-    transmission: 'Matic',
-    price: '399K',
-    rating: 4.9,
-    popular: false,
-    image: '../images/rocky-kuning.png'
-  },
-  {
-    id: 7,
-    name: 'Daihatsu New Xenia',
-    type: 'SUV',
-    capacity: 7,
-    transmission: 'Matic',
-    price: '399K',
-    rating: 4.9,
-    popular: false,
-    image: '../images/xenia-silver.png'
-  },
+        // 1. Daihatsu New Xenia (MPV)
+        {
+          id: 1,
+          name: 'Daihatsu New Xenia',
+          type: 'MPV',
+          capacity: 7,
+          transmission: 'Matic',
+          price: '349K',
+          rating: 5.0,
+          popular: true,
+          image: '../images/xenia-hitam.jpg'
+        },
 
-  // ================= Hatchback =================
-  {
-    id: 8,
-    name: 'Honda Brio',
-    type: 'Hatchback',
-    capacity: 4,
-    transmission: 'Matic',
-    price: '299K',
-    rating: 4.9,
-    popular: false,
-    image: '../images/brio-merah.jpg'
-  },
-  {
-    id: 9,
-    name: 'Toyota Agya',
-    type: 'Hatchback',
-    capacity: 4,
-    transmission: 'Manual/Matic',
-    price: '249K',
-    rating: 4.8,
-    popular: false,
-    image: '../images/agya-putih.png'
-  },
-  {
-    id: 10,
-    name: 'Toyota Agya',
-    type: 'Hatchback',
-    capacity: 4,
-    transmission: 'Matic',
-    price: '349K',
-    rating: 4.9,
-    popular: false,
-    image: '../images/agya-merah.png'
-  }
-],
-            get filteredCars() {
-                let result = this.cars;
-                
-                // Filter by category
-                if (this.activeFilter !== 'semua') {
-                    result = result.filter(car => car.type.toLowerCase() === this.activeFilter.toLowerCase());
-                }
-                
-                // Filter by search
-                if (this.searchQuery.trim() !== '') {
-                    result = result.filter(car => 
-                        car.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-                        car.type.toLowerCase().includes(this.searchQuery.toLowerCase())
-                    );
-                }
-                
-                return result;
-            }
-        }">
-      <!-- Search Bar -->
+        // 2. Toyota New Avanza
+        {
+          id: 2,
+          name: 'Toyota New Avanza',
+          type: 'MPV',
+          capacity: 7,
+          transmission: 'Matic',
+          price: '349K',
+          rating: 5.0,
+          popular: true,
+          image: '../images/new-avanza.png'
+        },
+
+        // 3. Daihatsu Rocky (4 Penumpang)
+        {
+          id: 3,
+          name: 'Daihatsu Rocky',
+          type: 'SUV',
+          capacity: 4,
+          transmission: 'Matic',
+          price: '299K',
+          rating: 5.0,
+          popular: false,
+          image: '../images/rocky-abu.jpg'
+        },
+
+        // 4. Daihatsu Rocky (7 Penumpang)
+        {
+          id: 4,
+          name: 'Daihatsu Rocky',
+          type: 'SUV',
+          capacity: 7,
+          transmission: 'Matic',
+          price: '399K',
+          rating: 4.9,
+          popular: false,
+          image: '../images/rocky-kuning.png'
+        },
+
+        // 5. Daihatsu New Xenia (SUV)
+        {
+          id: 5,
+          name: 'Daihatsu New Xenia',
+          type: 'SUV',
+          capacity: 7,
+          transmission: 'Matic',
+          price: '399K',
+          rating: 4.9,
+          popular: false,
+          image: '../images/xenia-silver.png'
+        },
+
+        // 6. Honda Brio
+        {
+          id: 6,
+          name: 'Honda Brio',
+          type: 'Hatchback',
+          capacity: 4,
+          transmission: 'Matic',
+          price: '299K',
+          rating: 4.9,
+          popular: false,
+          image: '../images/brio-merah.jpg'
+        },
+
+        // 7. Toyota Calya
+        {
+          id: 7,
+          name: 'Toyota Calya',
+          type: 'MPV',
+          capacity: 7,
+          transmission: 'Manual/Matic',
+          price: '299K',
+          rating: 4.8,
+          popular: false,
+          image: '../images/calya.png'
+        },
+
+        // 8. Toyota Avanza
+        {
+          id: 8,
+          name: 'Toyota Avanza',
+          type: 'MPV',
+          capacity: 7,
+          transmission: 'Matic',
+          price: '349K',
+          rating: 4.9,
+          popular: false,
+          image: '../images/avanza.png'
+        },
+
+        // 9. Toyota Agya
+        {
+          id: 9,
+          name: 'Toyota Agya',
+          type: 'Hatchback',
+          capacity: 4,
+          transmission: 'Manual/Matic',
+          price: '249K',
+          rating: 4.8,
+          popular: false,
+          image: '../images/agya-putih.png'
+        },
+
+        // 10. Toyota Agya
+        {
+          id: 10,
+          name: 'Toyota Agya',
+          type: 'Hatchback',
+          capacity: 4,
+          transmission: 'Matic',
+          price: '349K',
+          rating: 4.9,
+          popular: false,
+          image: '../images/agya-merah.png'
+        }
+      ],
+
+      get filteredCars() {
+        let result = this.cars;
+
+        if (this.activeFilter !== 'semua') {
+          result = result.filter(car =>
+            car.type.toLowerCase() === this.activeFilter.toLowerCase()
+          );
+        }
+
+        if (this.searchQuery.trim() !== '') {
+          result = result.filter(car =>
+            car.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+          );
+        }
+
+        return result;
+      }
+    }">
+
+      <!-- Search -->
       <div class="mb-8">
         <div class="relative max-w-xl mx-auto">
           <input type="text" x-model="searchQuery" placeholder="Cari mobil..."
-            class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 pl-14 text-white placeholder-gray-400 focus:outline-none focus:border-gold transition-all">
-          <svg class="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none"
-            stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
+            class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 pl-14 text-white placeholder-gray-400 focus:outline-none focus:border-gold">
         </div>
       </div>
 
       <!-- Filter Buttons -->
       <div class="flex flex-wrap justify-center gap-3 mb-12">
-        <button @click="activeFilter = 'semua'" :class="activeFilter === 'semua' ? 'filter-btn active' : 'filter-btn'"
-          class="px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-white/10 border border-white/20 hover:border-gold">
-          Semua Mobil
-        </button>
-        <button @click="activeFilter = 'mpv'" :class="activeFilter === 'mpv' ? 'filter-btn active' : 'filter-btn'"
-          class="px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-white/10 border border-white/20 hover:border-gold">
-          MPV
-        </button>
-        <button @click="activeFilter = 'suv'" :class="activeFilter === 'suv' ? 'filter-btn active' : 'filter-btn'"
-          class="px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-white/10 border border-white/20 hover:border-gold">
-          SUV
-        </button>
-        <button @click="activeFilter = 'hatchback'"
-          :class="activeFilter === 'hatchback' ? 'filter-btn active' : 'filter-btn'"
-          class="px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-white/10 border border-white/20 hover:border-gold">
-          Hatchback
-        </button>
+        <button @click="activeFilter='semua'" class="filter-btn">Semua</button>
+        <button @click="activeFilter='mpv'" class="filter-btn">MPV</button>
+        <button @click="activeFilter='suv'" class="filter-btn">SUV</button>
+        <button @click="activeFilter='hatchback'" class="filter-btn">Hatchback</button>
       </div>
 
-      <!-- Cars Grid -->
+      <!-- Cars -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <template x-for="car in filteredCars" :key="car.id">
-          <div x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false"
-            class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 transition-all duration-500 fade-in-up">
-            <div class="relative overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
-              </div>
-              <img :src="car.image" :alt="car.name"
-                class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700">
-              <div class="absolute top-4 left-4 z-20" x-show="car.popular">
-                <span class="px-3 py-1 bg-gold text-primary text-xs font-bold rounded-full">TERPOPULER</span>
-              </div>
-              <div class="absolute top-4 right-4 z-20">
-                <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-full"
-                  x-text="car.type"></span>
-              </div>
-            </div>
+          <div class="bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-gold transition">
+
+            <img :src="car.image" :alt="car.name" class="w-full h-56 object-cover">
+
             <div class="p-6">
-              <h3 class="text-2xl font-display font-bold mb-2" x-text="car.name"></h3>
+              <h3 class="text-2xl font-bold mb-2" x-text="car.name"></h3>
 
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-white/10 rounded-full text-xs" x-text="car.capacity + ' Penumpang'"></span>
-                <span class="px-3 py-1 bg-white/10 rounded-full text-xs" x-text="car.transmission"></span>
-                <span class="px-3 py-1 bg-white/10 rounded-full text-xs">AC</span>
+              <div class="flex gap-2 mb-4 text-xs">
+                <span class="px-3 py-1 bg-white/10 rounded-full" x-text="car.capacity + ' Penumpang'"></span>
+                <span class="px-3 py-1 bg-white/10 rounded-full" x-text="car.transmission"></span>
               </div>
 
-              <div class="flex items-end justify-between mb-4">
-                <div>
-                  <div class="text-sm text-gray-400">Mulai dari</div>
-                  <div class="text-3xl font-display font-bold text-gold" x-text="car.price"></div>
-                  <div class="text-xs text-gray-400">per hari</div>
-                </div>
-                <div class="text-right">
-                  <div class="flex items-center space-x-1 text-gold">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                      <path
-                        d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </svg>
-                    <span class="text-sm font-semibold" x-text="car.rating"></span>
-                  </div>
-                  <div class="text-xs text-gray-400">Rating</div>
-                </div>
+              <div class="mb-4">
+                <div class="text-sm text-gray-400">Mulai dari</div>
+                <div class="text-3xl font-bold text-gold" x-text="car.price"></div>
+                <div class="text-xs text-gray-400">per hari</div>
               </div>
 
-              <a :href="'https://wa.me/6281234567890?text=Halo Rendy Rental, saya ingin sewa ' + car.name"
-                target="_blank"
-                class="block w-full text-center bg-gradient-to-r from-gold to-accent text-primary font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-gold/50 transition-all duration-300 transform hover:scale-105">
+              <!-- WA BUTTON -->
+              <a :href="`https://wa.me/6282164447764?text=${encodeURIComponent(
+                'Halo Rendy Rental, saya ingin sewa ' + car.name + '. Apakah masih tersedia?'
+              )}`" target="_blank"
+                class="block w-full text-center bg-gradient-to-r from-gold to-accent text-primary font-semibold py-3 rounded-xl hover:shadow-lg hover:scale-105 transition">
                 Sewa Sekarang
               </a>
             </div>
+
           </div>
         </template>
       </div>
 
-      <!-- No Results -->
-      <div x-show="filteredCars.length === 0" class="text-center py-16">
-        <svg class="w-24 h-24 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <h3 class="text-2xl font-bold mb-2">Mobil tidak ditemukan</h3>
-        <p class="text-gray-400 mb-6">Coba gunakan kata kunci lain atau pilih kategori berbeda</p>
-        <button @click="activeFilter = 'semua'; searchQuery = ''"
-          class="px-6 py-3 bg-gradient-to-r from-gold to-accent text-primary font-semibold rounded-full hover:shadow-lg transition-all">
-          Reset Filter
-        </button>
-      </div>
     </div>
   </section>
 
@@ -455,9 +419,11 @@
       <p class="text-lg text-primary/80 mb-10 max-w-2xl mx-auto">
         Hubungi kami langsung untuk mendapatkan rekomendasi mobil terbaik sesuai kebutuhan Anda
       </p>
-      <a href="https://wa.me/6281234567890" target="_blank"
-        class="inline-flex items-center space-x-3 bg-primary text-white font-bold px-10 py-5 rounded-full hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-2xl">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+      <!-- WhatsApp Floating Button -->
+      <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil"
+        target="_blank"
+        class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-110 z-50 animate-bounce-slow">
+        <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path
             d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
         </svg>
@@ -571,7 +537,8 @@
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/6281234567890" target="_blank"
+  <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil"
+    target="_blank"
     class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-110 z-50 animate-bounce-slow">
     <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
       <path
