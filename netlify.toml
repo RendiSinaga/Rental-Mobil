@@ -1,0 +1,62 @@
+# Netlify Configuration File
+# Dokumentasi: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Publish directory - folder yang akan di-deploy
+  publish = "src"
+  
+  # Command untuk build (kosong karena static site)
+  command = ""
+
+# Redirect rules
+[[redirects]]
+  # Redirect semua 404 ke index.html (untuk SPA routing)
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers untuk security dan performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Cache control untuk static assets
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    # HTML files - cache lebih pendek
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    # Images - cache 1 tahun
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Plugin untuk optimasi
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+# Environment variables (opsional)
+# Bisa ditambahkan di Netlify Dashboard → Site settings → Environment variables
+
+# Custom domain configuration (opsional)
+# [build.environment]
+#   NODE_VERSION = "18"
