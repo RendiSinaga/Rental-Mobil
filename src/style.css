@@ -1,19 +1,104 @@
-/* style.css */
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
+/* ===========================
+   TYPING ANIMATION STYLES
+   =========================== */
+
+#typing-text {
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.scrollbar-hide {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+#cursor {
+    animation: blink 1s infinite;
 }
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ===========================
+   CAR DRIVING ANIMATION
+   =========================== */
+
+.car-container {
+    position: relative;
+    overflow: hidden;
+}
+
+#hero-car {
+    transition: transform 0.1s linear;
+    will-change: transform;
+}
+
+/* Wheel rotation effect (optional) */
+@keyframes wheelRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Floating car animation (subtle up-down) */
+@keyframes car-float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.car-float-animation {
+    animation: car-float 3s ease-in-out infinite;
+}
+
+/* Driving lines effect (optional road lines) */
+@keyframes drivingLines {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100px 0;
+    }
+}
+
+.driving-road {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(90deg,
+            transparent,
+            transparent 10px,
+            rgba(251, 191, 36, 0.3) 10px,
+            rgba(251, 191, 36, 0.3) 20px);
+    animation: drivingLines 1s linear infinite;
+}
+
+/* ===========================
+   ENHANCED FADE ANIMATIONS
+   =========================== */
 
 @keyframes fade-in-up {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
 
     to {
@@ -22,27 +107,95 @@
     }
 }
 
-.animate-fade-in-up {
-    animation: fade-in-up 1s ease-out both;
-}
-
-@keyframes fade-in-down {
+@keyframes fade-in-right {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateX(-30px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 
-.animate-fade-in-down {
-    animation: fade-in-down 1s ease-out both;
+@keyframes fade-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
+.fade-in-up {
+    animation: fade-in-up 0.8s ease-out both;
+}
+
+.fade-in-right {
+    animation: fade-in-right 0.8s ease-out both;
+}
+
+.fade-in-left {
+    animation: fade-in-left 0.8s ease-out both;
+}
+
+/* ===========================
+   GRADIENT ANIMATION
+   =========================== */
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 300% 300%;
+    animation: gradient 6s ease infinite;
+}
+
+/* ===========================
+   SCROLL ANIMATIONS
+   =========================== */
+
+.parallax {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* ===========================
+   FLOATING ANIMATIONS
+   =========================== */
+
 @keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.floating-card {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes bounce-slow {
 
     0%,
     100% {
@@ -54,45 +207,335 @@
     }
 }
 
-.animate-floating {
-    animation: floating 3s ease-in-out infinite;
+.animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
 }
 
-@keyframes gradient {
+/* ===========================
+   GLASS MORPHISM
+   =========================== */
+
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===========================
+   GLOW EFFECTS
+   =========================== */
+
+.glow-gold {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+}
+
+.glow-gold:hover {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+}
+
+/* ===========================
+   SCROLLBAR STYLING
+   =========================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0e27;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #fbbf24, #f59e0b);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #f59e0b, #fbbf24);
+}
+
+/* ===========================
+   SELECTION
+   =========================== */
+
+::selection {
+    background-color: #fbbf24;
+    color: #0a0e27;
+}
+
+::-moz-selection {
+    background-color: #fbbf24;
+    color: #0a0e27;
+}
+
+/* ===========================
+   FOCUS STATES
+   =========================== */
+
+*:focus {
+    outline: 2px solid #fbbf24;
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ===========================
+   IMAGE OPTIMIZATION
+   =========================== */
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* ===========================
+   PERFORMANCE
+   =========================== */
+
+.will-change {
+    will-change: transform, opacity;
+}
+
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* ===========================
+   RESPONSIVE OPTIMIZATIONS
+   =========================== */
+
+@media (max-width: 768px) {
+    #cursor {
+        height: 2.5rem;
+        /* Smaller cursor on mobile */
+    }
+
+    .fade-in-up,
+    .fade-in-right {
+        animation-duration: 0.5s;
+    }
+}
+
+/* ===========================
+   REDUCED MOTION SUPPORT
+   =========================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    #hero-car {
+        animation: none !important;
+    }
+}
+
+/* ===========================
+   PRINT STYLES
+   =========================== */
+
+@media print {
+
+    .no-print,
+    #cursor,
+    .animate-bounce {
+        display: none !important;
+    }
+}
+
+/* ===========================
+   LOADING STATES
+   =========================== */
+
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(251, 191, 36, 0.2),
+            transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
     0% {
-        background-position: 0% 50%;
+        left: -100%;
     }
 
     100% {
-        background-position: 100% 50%;
+        left: 100%;
     }
 }
 
-.animate-gradient {
-    background-size: 200% auto;
-    animation: gradient 3s linear infinite;
+/* ===========================
+   SKELETON LOADING
+   =========================== */
+
+.skeleton {
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0.05) 25%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0.05) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
 }
 
-/* Efek fade-in dengan delay */
-.animate-fade-delay {
-    opacity: 0;
-    animation: fade-in 1s ease-out forwards;
-    animation-delay: 2s;
-    /* muncul setelah 2 detik */
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
-@keyframes fade-in {
+/* ===========================
+   BUTTON RIPPLE EFFECT
+   =========================== */
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* ===========================
+   CARD HOVER EFFECTS
+   =========================== */
+
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+}
+
+/* ===========================
+   GRADIENT BORDERS
+   =========================== */
+
+.gradient-border {
+    position: relative;
+    background: linear-gradient(#0a0e27, #0a0e27) padding-box,
+        linear-gradient(135deg, #fbbf24, #f59e0b) border-box;
+    border: 2px solid transparent;
+}
+
+/* ===========================
+   TEXT EFFECTS
+   =========================== */
+
+.text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.text-glow {
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+/* ===========================
+   CUSTOM ANIMATIONS FOR HERO
+   =========================== */
+
+/* Road effect under car (optional) */
+.hero-road {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: repeating-linear-gradient(90deg,
+            rgba(251, 191, 36, 0.2) 0px,
+            rgba(251, 191, 36, 0.2) 20px,
+            transparent 20px,
+            transparent 40px);
+    animation: roadScroll 2s linear infinite;
+}
+
+@keyframes roadScroll {
     from {
-        opacity: 0;
+        background-position: 0 0;
     }
 
     to {
-        opacity: 1;
+        background-position: 40px 0;
     }
 }
 
-#cursor {
-    font-weight: bold;
-    font-size: 2rem;
-    margin-left: 4px;
+/* Speed lines effect (optional) */
+@keyframes speedLines {
+    0% {
+        transform: translateX(0) scaleX(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50px) scaleX(1);
+        opacity: 0;
+    }
+}
+
+.speed-line {
+    position: absolute;
+    height: 2px;
+    background: rgba(251, 191, 36, 0.3);
+    animation: speedLines 0.5s ease-out infinite;
+}
+
+@keyframes arrowMove {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(6px);
+    }
+}
+
+.animate-arrow {
+    animation: arrowMove 1.5s ease-in-out infinite;
 }

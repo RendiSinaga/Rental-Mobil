@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar Mobil - Rendy Rental Batam</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Sora', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0a0e27',
+            gold: '#fbbf24',
+            accent: '#f59e0b',
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Alpine.js dengan Collapse Plugin -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    /* Animations */
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fade-in-up 0.8s ease-out both;
+    }
+
+    @keyframes bounce-slow {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .animate-bounce-slow {
+      animation: bounce-slow 2s ease-in-out infinite;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0e27;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #fbbf24, #f59e0b);
+      border-radius: 4px;
+    }
+
+    ::selection {
+      background-color: #fbbf24;
+      color: #0a0e27;
+    }
+
+    /* Filter animation */
+    .filter-btn.active {
+      background: linear-gradient(to right, #fbbf24, #f59e0b);
+      color: #0a0e27;
+    }
+  </style>
+</head>
+
+<body class="bg-primary text-white font-body antialiased overflow-x-hidden">
+
+  <!-- Navbar -->
+  <header x-data="{ open: false, scrolled: false }"
+    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+    :class="scrolled ? 'bg-primary/95 backdrop-blur-md shadow-2xl' : 'bg-transparent'"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-3 group">
+          <img src="../images/logo-hitam.png" alt="Rendy Rental Logo"
+            class="w-12 h-12 rounded-xl transform group-hover:rotate-6 transition-transform duration-300">
+          <div class="flex flex-col">
+            <span class="text-xl font-display font-bold tracking-tight">Rendy Rental</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-sm font-medium hover:text-gold transition-colors relative group">
+            Home
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300"></span>
+          </a>
+          <a href="index.html#armada" class="text-sm font-medium hover:text-gold transition-colors relative group">
+            Armada
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300"></span>
+          </a>
+          <a href="index.html#layanan" class="text-sm font-medium hover:text-gold transition-colors relative group">
+            Layanan
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300"></span>
+          </a>
+          <a href="index.html#testimoni" class="text-sm font-medium hover:text-gold transition-colors relative group">
+            Testimoni
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300"></span>
+          </a>
+          <a href="https://wa.me/6281234567890" target="_blank"
+            class="bg-gradient-to-r from-gold to-accent text-primary font-semibold px-6 py-2.5 rounded-full hover:shadow-2xl hover:shadow-gold/50 transition-all duration-300 transform hover:scale-105">
+            Hubungi Kami
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button @click="open = !open" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors">
+          <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+          <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div x-show="open" x-collapse class="md:hidden mt-4 pb-4" style="display: none;">
+        <nav class="flex flex-col space-y-3">
+          <a href="index.html" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Home</a>
+          <a href="index.html#armada" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Armada</a>
+          <a href="index.html#layanan" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Layanan</a>
+          <a href="index.html#testimoni" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Testimoni</a>
+          <a href="https://wa.me/6281234567890" target="_blank"
+            class="px-4 py-2 bg-gradient-to-r from-gold to-accent text-primary font-semibold rounded-lg text-center">Hubungi
+            Kami</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-16 overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary via-blue-900/20 to-primary"></div>
+
+    <!-- Glow -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 left-20 w-72 h-72 bg-gold/30 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-6xl font-display font-bold mb-4">
+          Daftar <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-accent to-gold">Armada
+            Lengkap</span>
+        </h1>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+          Pilih mobil sesuai kebutuhan Anda dengan harga terbaik di Batam
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Section -->
+  <section class="relative py-8 bg-gradient-to-b from-blue-900/10 to-primary">
+    <div class="max-w-7xl mx-auto px-6" x-data="{ 
+            activeFilter: 'semua',
+            searchQuery: '',
+            cars: [
+  // ================= MPV (Keluarga / Favorit) =================
+  {
+    id: 1,
+    name: 'Daihatsu New Xenia',
+    type: 'MPV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '349K',
+    rating: 5.0,
+    popular: true,
+    image: '../images/xenia-hitam.jpg'
+  },
+  {
+    id: 2,
+    name: 'Toyota New Avanza',
+    type: 'MPV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '349K',
+    rating: 5.0,
+    popular: true,
+    image: '../images/new-avanza.png'
+  },
+  {
+    id: 3,
+    name: 'Toyota Calya',
+    type: 'MPV',
+    capacity: 7,
+    transmission: 'Manual/Matic',
+    price: '299K',
+    rating: 4.8,
+    popular: false,
+    image: '../images/calya.png'
+  },
+  {
+    id: 4,
+    name: 'Toyota Avanza',
+    type: 'MPV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '349K',
+    rating: 4.9,
+    popular: false,
+    image: '../images/avanza.png'
+  },
+
+  // ================= SUV =================
+  {
+    id: 5,
+    name: 'Daihatsu Rocky',
+    type: 'SUV',
+    capacity: 4,
+    transmission: 'Matic',
+    price: '299K',
+    rating: 5.0,
+    popular: false,
+    image: '../images/rocky-abu.jpg'
+  },
+  {
+    id: 6,
+    name: 'Daihatsu Rocky',
+    type: 'SUV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '399K',
+    rating: 4.9,
+    popular: false,
+    image: '../images/rocky-kuning.png'
+  },
+  {
+    id: 7,
+    name: 'Daihatsu New Xenia',
+    type: 'SUV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '399K',
+    rating: 4.9,
+    popular: false,
+    image: '../images/xenia-silver.png'
+  },
+
+  // ================= Hatchback =================
+  {
+    id: 8,
+    name: 'Honda Brio',
+    type: 'Hatchback',
+    capacity: 4,
+    transmission: 'Matic',
+    price: '299K',
+    rating: 4.9,
+    popular: false,
+    image: '../images/brio-merah.jpg'
+  },
+  {
+    id: 9,
+    name: 'Toyota Agya',
+    type: 'Hatchback',
+    capacity: 4,
+    transmission: 'Manual/Matic',
+    price: '249K',
+    rating: 4.8,
+    popular: false,
+    image: '../images/agya-putih.png'
+  },
+  {
+    id: 10,
+    name: 'Toyota Agya',
+    type: 'Hatchback',
+    capacity: 4,
+    transmission: 'Matic',
+    price: '349K',
+    rating: 4.9,
+    popular: false,
+    image: '../images/agya-merah.png'
+  }
+],
+            get filteredCars() {
+                let result = this.cars;
+                
+                // Filter by category
+                if (this.activeFilter !== 'semua') {
+                    result = result.filter(car => car.type.toLowerCase() === this.activeFilter.toLowerCase());
+                }
+                
+                // Filter by search
+                if (this.searchQuery.trim() !== '') {
+                    result = result.filter(car => 
+                        car.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                        car.type.toLowerCase().includes(this.searchQuery.toLowerCase())
+                    );
+                }
+                
+                return result;
+            }
+        }">
+      <!-- Search Bar -->
+      <div class="mb-8">
+        <div class="relative max-w-xl mx-auto">
+          <input type="text" x-model="searchQuery" placeholder="Cari mobil..."
+            class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 pl-14 text-white placeholder-gray-400 focus:outline-none focus:border-gold transition-all">
+          <svg class="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none"
+            stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <button @click="activeFilter = 'semua'" :class="activeFilter === 'semua' ? 'filter-btn active' : 'filter-btn'"
+          class="px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-white/10 border border-white/20 hover:border-gold">
+          Semua Mobil
+        </button>
+        <button @click="activeFilter = 'mpv'" :class="activeFilter === 'mpv' ? 'filter-btn active' : 'filter-btn'"
+          class="px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-white/10 border border-white/20 hover:border-gold">
+          MPV
+        </button>
+        <button @click="activeFilter = 'suv'" :class="activeFilter === 'suv' ? 'filter-btn active' : 'filter-btn'"
+          class="px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-white/10 border border-white/20 hover:border-gold">
+          SUV
+        </button>
+        <button @click="activeFilter = 'hatchback'"
+          :class="activeFilter === 'hatchback' ? 'filter-btn active' : 'filter-btn'"
+          class="px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-white/10 border border-white/20 hover:border-gold">
+          Hatchback
+        </button>
+      </div>
+
+      <!-- Cars Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <template x-for="car in filteredCars" :key="car.id">
+          <div x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false"
+            class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 transition-all duration-500 fade-in-up">
+            <div class="relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
+              </div>
+              <img :src="car.image" :alt="car.name"
+                class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute top-4 left-4 z-20" x-show="car.popular">
+                <span class="px-3 py-1 bg-gold text-primary text-xs font-bold rounded-full">TERPOPULER</span>
+              </div>
+              <div class="absolute top-4 right-4 z-20">
+                <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-full"
+                  x-text="car.type"></span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-display font-bold mb-2" x-text="car.name"></h3>
+
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-white/10 rounded-full text-xs" x-text="car.capacity + ' Penumpang'"></span>
+                <span class="px-3 py-1 bg-white/10 rounded-full text-xs" x-text="car.transmission"></span>
+                <span class="px-3 py-1 bg-white/10 rounded-full text-xs">AC</span>
+              </div>
+
+              <div class="flex items-end justify-between mb-4">
+                <div>
+                  <div class="text-sm text-gray-400">Mulai dari</div>
+                  <div class="text-3xl font-display font-bold text-gold" x-text="car.price"></div>
+                  <div class="text-xs text-gray-400">per hari</div>
+                </div>
+                <div class="text-right">
+                  <div class="flex items-center space-x-1 text-gold">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                      <path
+                        d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                    </svg>
+                    <span class="text-sm font-semibold" x-text="car.rating"></span>
+                  </div>
+                  <div class="text-xs text-gray-400">Rating</div>
+                </div>
+              </div>
+
+              <a :href="'https://wa.me/6281234567890?text=Halo Rendy Rental, saya ingin sewa ' + car.name"
+                target="_blank"
+                class="block w-full text-center bg-gradient-to-r from-gold to-accent text-primary font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-gold/50 transition-all duration-300 transform hover:scale-105">
+                Sewa Sekarang
+              </a>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- No Results -->
+      <div x-show="filteredCars.length === 0" class="text-center py-16">
+        <svg class="w-24 h-24 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h3 class="text-2xl font-bold mb-2">Mobil tidak ditemukan</h3>
+        <p class="text-gray-400 mb-6">Coba gunakan kata kunci lain atau pilih kategori berbeda</p>
+        <button @click="activeFilter = 'semua'; searchQuery = ''"
+          class="px-6 py-3 bg-gradient-to-r from-gold to-accent text-primary font-semibold rounded-full hover:shadow-lg transition-all">
+          Reset Filter
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="relative py-24 bg-gradient-to-r from-gold via-accent to-gold overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">
+        Tidak Menemukan Mobil yang Anda Cari?
+      </h2>
+      <p class="text-lg text-primary/80 mb-10 max-w-2xl mx-auto">
+        Hubungi kami langsung untuk mendapatkan rekomendasi mobil terbaik sesuai kebutuhan Anda
+      </p>
+      <a href="https://wa.me/6281234567890" target="_blank"
+        class="inline-flex items-center space-x-3 bg-primary text-white font-bold px-10 py-5 rounded-full hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-2xl">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+        <span class="text-xl">Konsultasi Gratis</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary border-t border-white/10 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <!-- Brand -->
+        <div class="md:col-span-1">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="flex items-center space-x-3">
+              <img src="../images/logo-hitam.png" alt="Rendy Rental Logo" class="w-12 h-12 rounded-xl">
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xl font-display font-bold">Rendy Rental</span>
+              <span class="text-xs text-gray-400">Since 2020</span>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm mb-4">
+            Solusi rental mobil terpercaya di Batam dengan layanan profesional dan harga kompetitif.
+          </p>
+          <div class="flex space-x-3">
+            <a href="https://www.facebook.com/people/Rendy-Rental/61582855596759/"
+              class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/carrental.rendy/"
+              class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <h4 class="font-display font-semibold text-gold mb-4">Layanan</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-gold transition-colors">Sewa Harian</a></li>
+            <li><a href="#" class="hover:text-gold transition-colors">Sewa Mingguan</a></li>
+            <li><a href="#" class="hover:text-gold transition-colors">Sewa Bulanan</a></li>
+            <li><a href="index.html#layanan" class="hover:text-gold transition-colors">Sewa dengan Supir</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-semibold text-gold mb-4">Perusahaan</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="index.html" class="hover:text-gold transition-colors">Tentang Kami</a></li>
+            <li><a href="daftar-mobil.html" class="hover:text-gold transition-colors">Armada</a></li>
+            <li><a href="index.html#testimoni" class="hover:text-gold transition-colors">Testimoni</a></li>
+            <li><a href="#" class="hover:text-gold transition-colors">Syarat & Ketentuan</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="font-display font-semibold text-gold mb-4">Hubungi Kami</h4>
+          <ul class="space-y-3 text-gray-400 text-sm">
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Perum Taman Lestari Blok C18, Batam</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <a href="https://wa.me/6281234567890" class="hover:text-gold transition-colors">+62
+                812-3456-7890</a>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <a href="mailto:rendyrental10@gmail.com"
+                class="hover:text-gold transition-colors">rendyrental10@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p class="text-gray-400 text-sm text-center md:text-left">
+          © 2025 Rendy Rental. All rights reserved.
+        </p>
+        <div class="flex space-x-6 text-sm text-gray-400">
+          <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-gold transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/6281234567890" target="_blank"
+    class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-110 z-50 animate-bounce-slow">
+    <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  </a>
+
+</body>
+
+</html>
