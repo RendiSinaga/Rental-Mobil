@@ -109,7 +109,7 @@
       <div class="flex justify-between items-center">
         <!-- Logo -->
         <a href="index.html" class="flex items-center space-x-3 group">
-          <img src="../images/logo-hitam.png" alt="Rendy Rental Logo"
+          <img src="./images/logo-hitam.png" alt="Rendy Rental Logo"
             class="w-12 h-12 rounded-xl transform group-hover:rotate-6 transition-transform duration-300">
           <div class="flex flex-col">
             <span class="text-xl font-display font-bold tracking-tight">Rendy Rental</span>
@@ -212,7 +212,7 @@
           price: '349K',
           rating: 5.0,
           popular: true,
-          image: '../images/xenia-hitam.jpg'
+          image: './images/xenia-hitam.jpg'
         },
 
         // 2. Toyota New Avanza
@@ -225,7 +225,7 @@
           price: '349K',
           rating: 5.0,
           popular: true,
-          image: '../images/new-avanza.png'
+          image: './images/new-avanza.png'
         },
 
         // 3. Daihatsu Rocky (4 Penumpang)
@@ -238,7 +238,7 @@
           price: '299K',
           rating: 5.0,
           popular: false,
-          image: '../images/rocky-abu.jpg'
+          image: './images/rocky-abu.jpg'
         },
 
         // 4. Daihatsu Rocky (7 Penumpang)
@@ -248,10 +248,10 @@
           type: 'SUV',
           capacity: 7,
           transmission: 'Matic',
-          price: '399K',
+          price: '299K',
           rating: 4.9,
           popular: false,
-          image: '../images/rocky-kuning.png'
+          image: './images/rocky-kuning.png'
         },
 
         // 5. Daihatsu New Xenia (SUV)
@@ -261,10 +261,10 @@
           type: 'SUV',
           capacity: 7,
           transmission: 'Matic',
-          price: '399K',
+          price: '349K',
           rating: 4.9,
           popular: false,
-          image: '../images/xenia-silver.png'
+          image: './images/xenia-silver.png'
         },
 
         // 6. Honda Brio
@@ -277,7 +277,7 @@
           price: '299K',
           rating: 4.9,
           popular: false,
-          image: '../images/brio-merah.jpg'
+          image: './images/brio-merah.jpg'
         },
 
         // 7. Toyota Calya
@@ -286,11 +286,11 @@
           name: 'Toyota Calya',
           type: 'MPV',
           capacity: 7,
-          transmission: 'Manual/Matic',
+          transmission: 'Matic',
           price: '299K',
           rating: 4.8,
           popular: false,
-          image: '../images/calya.png'
+          image: './images/calya.png'
         },
 
         // 8. Toyota Avanza
@@ -300,10 +300,10 @@
           type: 'MPV',
           capacity: 7,
           transmission: 'Matic',
-          price: '349K',
+          price: '299K',
           rating: 4.9,
           popular: false,
-          image: '../images/avanza.png'
+          image: './images/avanza.png'
         },
 
         // 9. Toyota Agya
@@ -312,11 +312,11 @@
           name: 'Toyota Agya',
           type: 'Hatchback',
           capacity: 4,
-          transmission: 'Manual/Matic',
+          transmission: 'Matic',
           price: '249K',
           rating: 4.8,
           popular: false,
-          image: '../images/agya-putih.png'
+          image: './images/agya-putih.png'
         },
 
         // 10. Toyota Agya
@@ -326,10 +326,10 @@
           type: 'Hatchback',
           capacity: 4,
           transmission: 'Matic',
-          price: '349K',
+          price: '249K',
           rating: 4.9,
           popular: false,
-          image: '../images/agya-merah.png'
+          image: './images/agya-merah.png'
         }
       ],
 
@@ -358,14 +358,6 @@
           <input type="text" x-model="searchQuery" placeholder="Cari mobil..."
             class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 pl-14 text-white placeholder-gray-400 focus:outline-none focus:border-gold">
         </div>
-      </div>
-
-      <!-- Filter Buttons -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12">
-        <button @click="activeFilter='semua'" class="filter-btn">Semua</button>
-        <button @click="activeFilter='mpv'" class="filter-btn">MPV</button>
-        <button @click="activeFilter='suv'" class="filter-btn">SUV</button>
-        <button @click="activeFilter='hatchback'" class="filter-btn">Hatchback</button>
       </div>
 
       <!-- Cars -->
@@ -405,32 +397,31 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="relative py-24 bg-gradient-to-r from-gold via-accent to-gold overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-    </div>
+<!-- CTA Section -->
+<section class="relative py-24 bg-gradient-to-r from-gold via-accent to-gold overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+  </div>
 
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">
-        Tidak Menemukan Mobil yang Anda Cari?
-      </h2>
-      <p class="text-lg text-primary/80 mb-10 max-w-2xl mx-auto">
-        Hubungi kami langsung untuk mendapatkan rekomendasi mobil terbaik sesuai kebutuhan Anda
-      </p>
-      <!-- WhatsApp Floating Button -->
-      <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil"
-        target="_blank"
-        class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-110 z-50 animate-bounce-slow">
-        <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-        </svg>
-        <span class="text-xl">Konsultasi Gratis</span>
-      </a>
-    </div>
-  </section>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">
+      Tidak Menemukan Mobil yang Anda Cari?
+    </h2>
+    <p class="text-lg text-primary/80 mb-10 max-w-2xl mx-auto">
+      Hubungi kami langsung untuk mendapatkan rekomendasi mobil terbaik sesuai kebutuhan Anda
+    </p>
+    <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil"
+      target="_blank"
+      class="inline-flex items-center space-x-3 bg-primary text-white font-bold px-10 py-5 rounded-full hover:bg-primary/90 shadow-2xl hover:shadow-primary/50 transition-all duration-300 transform hover:scale-105">
+      <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+      </svg>
+      <span class="text-xl">Konsultasi Gratis</span>
+    </a>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer class="bg-primary border-t border-white/10 pt-16 pb-8">
@@ -440,7 +431,7 @@
         <div class="md:col-span-1">
           <div class="flex items-center space-x-3 mb-4">
             <div class="flex items-center space-x-3">
-              <img src="../images/logo-hitam.png" alt="Rendy Rental Logo" class="w-12 h-12 rounded-xl">
+              <img src="./images/logo-hitam.png" alt="Rendy Rental Logo" class="w-12 h-12 rounded-xl">
             </div>
             <div class="flex flex-col">
               <span class="text-xl font-display font-bold">Rendy Rental</span>
@@ -536,15 +527,15 @@
     </div>
   </footer>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil?"
-    target="_blank"
-    class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-110 z-50 animate-bounce-slow">
-    <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-    </svg>
-  </a>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil"
+  target="_blank"
+  class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-110 z-50 animate-bounce-slow">
+  <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
+    <path
+      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+  </svg>
+</a>
 
 </body>
 
