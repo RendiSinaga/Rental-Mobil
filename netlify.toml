@@ -8,6 +8,11 @@
   # Command untuk build (kosong karena static site)
   command = ""
 
+    functions = "netlify/functions"  # ← TAMBAH INI
+
+[functions]                         # ← TAMBAH BLOK INI
+node_bundler = "esbuild"
+
 # Redirect rules
 [[redirects]]
   # Redirect semua 404 ke index.html (untuk SPA routing)
