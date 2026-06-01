@@ -11,26 +11,7 @@
     href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
-    <link rel="stylesheet" href="./output.css">
-
-  <!-- Tailwind Config -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['Sora', 'sans-serif'],
-            body: ['Plus Jakarta Sans', 'sans-serif'],
-          },
-          colors: {
-            primary: '#0a0e27',
-            gold: '#fbbf24',
-            accent: '#f59e0b',
-          },
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="./output.css">
 
   <!-- Alpine.js dengan Collapse Plugin -->
   <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
@@ -203,136 +184,126 @@
       searchQuery: '',
       cars: [
 
-        // 1. Daihatsu New Xenia (MPV)
-        {
-          id: 1,
-          name: 'Daihatsu New Xenia',
-          type: 'MPV',
-          capacity: 7,
-          transmission: 'Matic',
-          price: '349K',
-          rating: 5.0,
-          popular: true,
-          image: './images/xenia-hitam.jpg'
-        },
+  {
+    id: 1,
+    name: 'Daihatsu New Xenia',
+    type: 'MPV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '349K',
+    rating: 5.0,
+    popular: true,
+    image: './images/xenia-hitam.webp'
+  },
 
-        // 2. Toyota New Avanza
-        {
-          id: 2,
-          name: 'Toyota New Avanza',
-          type: 'MPV',
-          capacity: 7,
-          transmission: 'Matic',
-          price: '349K',
-          rating: 5.0,
-          popular: true,
-          image: './images/new-avanza.png'
-        },
+  {
+    id: 2,
+    name: 'Toyota New Avanza',
+    type: 'MPV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '349K',
+    rating: 5.0,
+    popular: true,
+    image: './images/new-avanza.webp'
+  },
 
-        // 3. Daihatsu Rocky (4 Penumpang)
-        {
-          id: 3,
-          name: 'Daihatsu Rocky',
-          type: 'SUV',
-          capacity: 4,
-          transmission: 'Matic',
-          price: '299K',
-          rating: 5.0,
-          popular: false,
-          image: './images/rocky-abu.jpg'
-        },
+  {
+    id: 3,
+    name: 'Daihatsu Rocky',
+    type: 'SUV',
+    capacity: 4,
+    transmission: 'Matic',
+    price: '299K',
+    rating: 5.0,
+    popular: false,
+    image: './images/rocky-abu.webp'
+  },
 
-        // 4. Daihatsu Rocky (7 Penumpang)
-        {
-          id: 4,
-          name: 'Daihatsu Rocky',
-          type: 'SUV',
-          capacity: 7,
-          transmission: 'Matic',
-          price: '299K',
-          rating: 4.9,
-          popular: false,
-          image: './images/rocky-kuning.png'
-        },
+  {
+    id: 4,
+    name: 'Daihatsu Rocky',
+    type: 'SUV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '299K',
+    rating: 4.9,
+    popular: false,
+    image: './images/rocky-kuning.webp'
+  },
 
-        // 5. Daihatsu New Xenia (SUV)
-        {
-          id: 5,
-          name: 'Daihatsu New Xenia',
-          type: 'SUV',
-          capacity: 7,
-          transmission: 'Matic',
-          price: '349K',
-          rating: 4.9,
-          popular: false,
-          image: './images/xenia-silver.png'
-        },
+  {
+    id: 5,
+    name: 'Daihatsu New Xenia',
+    type: 'SUV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '349K',
+    rating: 4.9,
+    popular: false,
+    image: './images/xenia-silver.webp'
+  },
 
-        // 6. Honda Brio
-        {
-          id: 6,
-          name: 'Honda Brio',
-          type: 'Hatchback',
-          capacity: 4,
-          transmission: 'Matic',
-          price: '299K',
-          rating: 4.9,
-          popular: false,
-          image: './images/brio-merah.jpg'
-        },
+  {
+    id: 6,
+    name: 'Honda Brio',
+    type: 'Hatchback',
+    capacity: 4,
+    transmission: 'Matic',
+    price: '299K',
+    rating: 4.9,
+    popular: false,
+    image: './images/brio-merah.webp'
+  },
 
-        // 7. Toyota Calya
-        {
-          id: 7,
-          name: 'Toyota Calya',
-          type: 'MPV',
-          capacity: 7,
-          transmission: 'Matic',
-          price: '299K',
-          rating: 4.8,
-          popular: false,
-          image: './images/calya.png'
-        },
+  {
+    id: 7,
+    name: 'Toyota Calya',
+    type: 'MPV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '299K',
+    rating: 4.8,
+    popular: false,
+    image: './images/calya.webp'
+  },
 
-        // 8. Toyota Avanza
-        {
-          id: 8,
-          name: 'Toyota Avanza',
-          type: 'MPV',
-          capacity: 7,
-          transmission: 'Matic',
-          price: '299K',
-          rating: 4.9,
-          popular: false,
-          image: './images/avanza.png'
-        },
+  {
+    id: 8,
+    name: 'Toyota Avanza',
+    type: 'MPV',
+    capacity: 7,
+    transmission: 'Matic',
+    price: '299K',
+    rating: 4.9,
+    popular: false,
+    image: './images/avanza.webp'
+  },
 
-        // 9. Toyota Agya
-        {
-          id: 9,
-          name: 'Toyota Agya',
-          type: 'Hatchback',
-          capacity: 4,
-          transmission: 'Matic',
-          price: '249K',
-          rating: 4.8,
-          popular: false,
-          image: './images/agya-putih.png'
-        },
+  {
+    id: 9,
+    name: 'Toyota Agya',
+    type: 'Hatchback',
+    capacity: 4,
+    transmission: 'Matic',
+    price: '249K',
+    rating: 4.8,
+    popular: false,
+    image: './images/agya-putih.webp'
+  },
 
-        // 10. Toyota Agya
-        {
-          id: 10,
-          name: 'Toyota Agya',
-          type: 'Hatchback',
-          capacity: 4,
-          transmission: 'Matic',
-          price: '249K',
-          rating: 4.9,
-          popular: false,
-          image: './images/agya-merah.png'
-        }
-      ],
+  {
+    id: 10,
+    name: 'Toyota Agya',
+    type: 'Hatchback',
+    capacity: 4,
+    transmission: 'Matic',
+    price: '249K',
+    rating: 4.9,
+    popular: false,
+    image: './images/agya-merah.webp'
+  }
+],
 
       get filteredCars() {
         let result = this.cars;
@@ -366,7 +337,8 @@
         <template x-for="car in filteredCars" :key="car.id">
           <div class="bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-gold transition">
 
-            <img :src="car.image" :alt="car.name" class="w-full h-56 object-cover">
+            <img :src="car.image" :alt="'Sewa ' + car.name + ' Batam'" width="800" height="500" loading="lazy"
+              class="w-full h-56 object-cover">
 
             <div class="p-6">
               <h3 class="text-2xl font-bold mb-2" x-text="car.name"></h3>

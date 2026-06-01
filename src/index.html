@@ -25,7 +25,7 @@
     <meta property="og:title" content="Rendy Rental Batam - Sewa Mobil Murah Terpercaya">
     <meta property="og:description"
         content="Rental mobil Batam terpercaya sejak 2020. Harga mulai 249K/hari. Armada terawat & pelayanan 24 jam.">
-    <meta property="og:image" content="https://rendyrental-batam.netlify.app/images/xenia-hitam.jpg">
+    <meta property="og:image" content="https://rendyrental-batam.netlify.app/images/xenia-hitam.webp">
     <meta property="og:site_name" content="Rendy Rental Batam">
     <meta property="og:locale" content="id_ID">
 
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Rendy Rental Batam - Sewa Mobil Murah">
     <meta name="twitter:description" content="Rental mobil Batam terpercaya. Harga mulai 249K/hari.">
-    <meta name="twitter:image" content="https://rendyrental-batam.netlify.app/images/xenia-hitam.jpg">
+    <meta name="twitter:image" content="https://rendyrental-batam.netlify.app/images/xenia-hitam.webp">
 
     <!-- Geo Tags untuk Batam -->
     <meta name="geo.region" content="ID-RI">
@@ -95,31 +95,9 @@
         href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        display: ['Sora', 'sans-serif'],
-                        body: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#0a0e27',
-                        gold: '#fbbf24',
-                        accent: '#f59e0b',
-                    },
-                }
-            }
-        }
-    </script>
-
     <!-- Alpine.js dengan Collapse Plugin -->
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- Lottie -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -198,6 +176,7 @@
       }
     }
     </script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <style>
         /* Animations */
@@ -394,9 +373,7 @@
                         <!-- Lepas Kunci -->
                         <div class="flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10">
                             <div class="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center">
-                                <lottie-player src="./assets/lottie/key.json" background="transparent" speed="1"
-                                    style="width:22px;height:22px" loop autoplay>
-                                </lottie-player>
+                                <span class="text-xl inline-block animate-bounce-slow">🔑</span>
                             </div>
                             <span class="text-sm font-semibold">Lepas Kunci</span>
                         </div>
@@ -404,9 +381,7 @@
                         <!-- Dengan Supir -->
                         <div class="flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10">
                             <div class="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center">
-                                <lottie-player src="./assets/lottie/driving.json" background="transparent" speed="1"
-                                    style="width:22px;height:22px" loop autoplay>
-                                </lottie-player>
+                                <span class="text-xl inline-block animate-bounce-slow">🚘</span>
                             </div>
                             <span class="text-sm font-semibold">Dengan Supir</span>
                         </div>
@@ -414,9 +389,7 @@
                         <!-- Antar 24/7 -->
                         <div class="flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10">
                             <div class="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center">
-                                <lottie-player src="./assets/lottie/clock.json" background="transparent" speed="1"
-                                    style="width:22px;height:22px" loop autoplay>
-                                </lottie-player>
+                                <span class="text-xl inline-block animate-bounce-slow">🕒</span>
                             </div>
                             <span class="text-sm font-semibold">Antar 24/7</span>
                         </div>
@@ -424,9 +397,7 @@
                         <!-- Unit Bersih -->
                         <div class="flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10">
                             <div class="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center">
-                                <lottie-player src="./assets/lottie/clean.json" background="transparent" speed="1"
-                                    style="width:22px;height:22px" loop autoplay>
-                                </lottie-player>
+                                <span class="text-xl ">✨</span>
                             </div>
                             <span class="text-sm font-semibold">Unit Bersih</span>
                         </div>
@@ -527,7 +498,8 @@
                     <div class="relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
                         </div>
-                        <img src="./images/xenia-hitam.jpg" alt="Sewa Daihatsu New Xenia Batam" loading="lazy"
+                        <img src="./images/xenia-hitam.webp" alt="Sewa Daihatsu New Xenia Batam" width="800"
+                            height="500" loading="lazy"
                             class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute top-4 left-4 z-20">
                             <span
@@ -576,7 +548,8 @@
                     <div class="relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
                         </div>
-                        <img src="./images/rocky-abu.jpg" alt="Sewa Daihatsu Rocky Batam" loading="lazy"
+                        <img src="./images/rocky-abu.webp" alt="Sewa Daihatsu Rocky Batam" width="800" height="500"
+                            loading="lazy"
                             class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <div class="p-6">
@@ -621,7 +594,8 @@
                     <div class="relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
                         </div>
-                        <img src="./images/brio-merah.jpg" alt="Sewa Honda Brio Batam" loading="lazy"
+                        <img src="./images/brio-merah.webp" alt="Sewa Honda Brio Batam" width="800" height="500"
+                            loading="lazy"
                             class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <div class="p-6">
@@ -666,7 +640,8 @@
                     <div class="relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
                         </div>
-                        <img src="./images/agya-putih.png" alt="Sewa Toyota Agya Batam" loading="lazy"
+                        <img src="./images/agya-putih.webp" alt="Sewa Toyota Agya Batam" width="800" height="500"
+                            loading="lazy"
                             class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <div class="p-6">
@@ -711,7 +686,8 @@
                     <div class="relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
                         </div>
-                        <img src="./images/new-avanza.png" alt="Sewa Daihatsu New Avanza Batam" loading="lazy"
+                        <img src="./images/new-avanza.webp" alt="Sewa Toyota New Avanza Batam" width="800" height="500"
+                            loading="lazy"
                             class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <div class="p-6">
