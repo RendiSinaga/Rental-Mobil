@@ -195,7 +195,7 @@
     animation: floating 3s ease-in-out infinite;
 }
 
-@keyframes bounce-slow {
+@keyframes float-soft {
 
     0%,
     100% {
@@ -203,12 +203,12 @@
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-4px);
     }
 }
 
-.animate-bounce-slow {
-    animation: bounce-slow 2s ease-in-out infinite;
+.animate-float-soft {
+    animation: float-soft 3.5s ease-in-out infinite;
 }
 
 /* ===========================
