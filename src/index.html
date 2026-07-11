@@ -83,7 +83,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "reviewCount": "500"
+        "reviewCount": "300"
       }
     }
     </script>
@@ -91,6 +91,8 @@
     <link rel="stylesheet" href="./output.css">
 
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
@@ -99,166 +101,136 @@
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <!-- Schema.org Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Rendy Rental Batam",
-      "image": "https://yoursite.netlify.app/images/logo-hitam.png",
-      "description": "Rental mobil Batam terpercaya dengan harga mulai 249K/hari. Armada lengkap dan terawat. Lepas kunci & dengan supir profesional.",
-      "@id": "https://yoursite.netlify.app",
-      "url": "https://yoursite.netlify.app",
-      "telephone": "+6282164447764",
-      "email": "rendyrental10@gmail.com",
-      "priceRange": "Rp 249.000 - Rp 399.000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Perum Taman Lestari Blok C18",
-        "addressLocality": "Batam",
-        "addressRegion": "Kepulauan Riau",
-        "postalCode": "29432",
-        "addressCountry": "ID"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "1.0456",
-        "longitude": "103.9022"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "sameAs": [
-        "https://www.facebook.com/people/Rendy-Rental/61582855596759/",
-        "https://www.instagram.com/carrental.rendy/"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "500"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Rental Mobil Batam",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Product",
-              "name": "Toyota Agya",
-              "description": "Sewa mobil Toyota Agya di Batam"
-            },
-            "price": "249000",
-            "priceCurrency": "IDR"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Product",
-              "name": "Daihatsu New Xenia",
-              "description": "Sewa mobil Daihatsu New Xenia di Batam"
-            },
-            "price": "349000",
-            "priceCurrency": "IDR"
-          }
-        ]
-      }
-    }
-    </script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
 
     <style>
-       /* Animations */
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
+        /* Animations */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.fade-in-up {
-    animation: fade-in-up 0.8s ease-out both;
-}
+        .fade-in-up {
+            animation: fade-in-up 0.8s ease-out both;
+        }
 
-/* Animasi halus, bukan bounce */
-@keyframes float-soft {
-    0%, 100% {
-        transform: translateY(0);
-    }
+        /* Animasi halus, bukan bounce */
+        @keyframes float-soft {
 
-    50% {
-        transform: translateY(-4px);
-    }
-}
+            0%,
+            100% {
+                transform: translateY(0);
+            }
 
-.animate-float-soft {
-    animation: float-soft 3.5s ease-in-out infinite;
-}
+            50% {
+                transform: translateY(-4px);
+            }
+        }
 
-/* Glow halus untuk tombol WhatsApp */
-@keyframes pulse-glow {
-    0%, 100% {
-        box-shadow: 0 10px 25px rgba(34, 197, 94, 0.25);
-    }
+        .animate-float-soft {
+            animation: float-soft 3.5s ease-in-out infinite;
+        }
 
-    50% {
-        box-shadow: 0 14px 34px rgba(34, 197, 94, 0.45);
-    }
-}
+        /* Glow halus untuk tombol WhatsApp */
+        @keyframes pulse-glow {
 
-.animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
-}
+            0%,
+            100% {
+                box-shadow: 0 10px 25px rgba(34, 197, 94, 0.25);
+            }
 
-/* Animasi panah */
-@keyframes arrowMove {
-    0%, 100% {
-        transform: translateX(0);
-    }
+            50% {
+                box-shadow: 0 14px 34px rgba(34, 197, 94, 0.45);
+            }
+        }
 
-    50% {
-        transform: translateX(6px);
-    }
-}
+        .animate-pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
 
-.animate-arrow {
-    animation: arrowMove 1.5s ease-in-out infinite;
-}
+        /* Animasi panah */
+        @keyframes arrowMove {
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
+            0%,
+            100% {
+                transform: translateX(0);
+            }
 
-::-webkit-scrollbar-track {
-    background: #0a0e27;
-}
+            50% {
+                transform: translateX(6px);
+            }
+        }
 
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #fbbf24, #f59e0b);
-    border-radius: 4px;
-}
+        .animate-arrow {
+            animation: arrowMove 1.5s ease-in-out infinite;
+        }
 
-::selection {
-    background-color: #fbbf24;
-    color: #0a0e27;
-}
+        /* Shimmer gold text */
+        @keyframes shimmer-gold {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        .shimmer-gold {
+            display: block;
+            background: linear-gradient(90deg,
+                    #b8860b 0%,
+                    #ffd700 25%,
+                    #fffacd 45%,
+                    #ffd700 65%,
+                    #b8860b 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer-gold 3.5s linear infinite;
+        }
+
+        /* Infinite marquee */
+        @keyframes marqueeScroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-outer:hover {
+            animation-play-state: paused !important;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0e27;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #fbbf24, #f59e0b);
+            border-radius: 4px;
+        }
+
+        ::selection {
+            background-color: #fbbf24;
+            color: #0a0e27;
+        }
     </style>
 </head>
 
@@ -302,15 +274,21 @@
                         <span
                             class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300"></span>
                     </a>
+                    <a href="#faq" class="text-sm font-medium hover:text-gold transition-colors relative group">
+                        FAQ
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300"></span>
+                    </a>
                     <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil?"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         class="bg-gradient-to-r from-gold to-accent text-primary font-semibold px-6 py-2.5 rounded-full hover:shadow-2xl hover:shadow-gold/50 transition-all duration-300 transform hover:scale-105">
                         Hubungi Kami
                     </a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
-                <button @click="open = !open" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors">
+                <button @click="open = !open" :aria-expanded="open" aria-label="Buka menu navigasi"
+                    class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors">
                     <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16m-7 6h7" />
@@ -326,12 +304,18 @@
             <!-- Mobile Menu -->
             <div x-show="open" x-collapse class="md:hidden mt-4 pb-4" style="display: none;">
                 <nav class="flex flex-col space-y-3">
-                    <a href="#" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Home</a>
-                    <a href="#armada" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Armada</a>
-                    <a href="#layanan" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Layanan</a>
-                    <a href="#testimoni" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Testimoni</a>
+                    <a href="#" @click="open = false"
+                        class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Home</a>
+                    <a href="#armada" @click="open = false"
+                        class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Armada</a>
+                    <a href="#layanan" @click="open = false"
+                        class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Layanan</a>
+                    <a href="#testimoni" @click="open = false"
+                        class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Testimoni</a>
+                    <a href="#faq" @click="open = false"
+                        class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">FAQ</a>
                     <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil?"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         class="px-4 py-2 bg-gradient-to-r from-gold to-accent text-primary font-semibold rounded-lg text-center">Hubungi
                         Kami</a>
                 </nav>
@@ -365,7 +349,7 @@
 
                     <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight">
                         Kebebasan
-                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-gold via-accent to-gold">
+                        <span class="block shimmer-gold">
                             Berkendara
                         </span>
                         Dimulai Disini
@@ -387,7 +371,8 @@
                         <div
                             class="group flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10 hover:border-gold/40 transition-all duration-300">
                             <div class="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center">
-                                <span class="text-xl inline-block transition-transform duration-300 group-hover:scale-110">🔑</span>
+                                <span
+                                    class="text-xl inline-block transition-transform duration-300 group-hover:scale-110">🔑</span>
                             </div>
                             <span class="text-sm font-semibold">Lepas Kunci</span>
                         </div>
@@ -396,7 +381,8 @@
                         <div
                             class="group flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10 hover:border-gold/40 transition-all duration-300">
                             <div class="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center">
-                                <span class="text-xl inline-block transition-transform duration-300 group-hover:scale-110">🚘</span>
+                                <span
+                                    class="text-xl inline-block transition-transform duration-300 group-hover:scale-110">🚘</span>
                             </div>
                             <span class="text-sm font-semibold">Dengan Supir</span>
                         </div>
@@ -405,7 +391,8 @@
                         <div
                             class="group flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10 hover:border-gold/40 transition-all duration-300">
                             <div class="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center">
-                                <span class="text-xl inline-block transition-transform duration-300 group-hover:scale-110">🕒</span>
+                                <span
+                                    class="text-xl inline-block transition-transform duration-300 group-hover:scale-110">🕒</span>
                             </div>
                             <span class="text-sm font-semibold">Antar 24/7</span>
                         </div>
@@ -414,7 +401,8 @@
                         <div
                             class="group flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10 hover:border-gold/40 transition-all duration-300">
                             <div class="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center">
-                                <span class="text-xl inline-block transition-transform duration-300 group-hover:scale-110">✨</span>
+                                <span
+                                    class="text-xl inline-block transition-transform duration-300 group-hover:scale-110">✨</span>
                             </div>
                             <span class="text-sm font-semibold">Unit Bersih</span>
                         </div>
@@ -423,7 +411,8 @@
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-wrap gap-4">
-                        <a href="https://wa.me/6281234567890" target="_blank"
+                        <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil?"
+                            target="_blank" rel="noopener noreferrer"
                             class="group inline-flex items-center space-x-3 bg-gradient-to-r from-gold to-accent text-primary font-bold px-8 py-4 rounded-full hover:shadow-2xl hover:shadow-gold/50 transition-all duration-300 transform hover:scale-105">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -511,7 +500,7 @@
 
                 <!-- Car Card 1 - New Xenia -->
                 <div x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false"
-                    class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 transition-all duration-500 fade-in-up">
+                    class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold/20 transition-all duration-500 ease-out fade-in-up">
                     <div class="relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
                         </div>
@@ -551,7 +540,7 @@
                         </div>
 
                         <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20sewa%20*Daihatsu%20New%20Xenia*%20dengan%20harga%20mulai%20dari%20349K%20per%20hari.%20Apakah%20masih%20tersedia?"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             class="block w-full text-center bg-gradient-to-r from-gold to-accent text-primary font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-gold/50 transition-all duration-300 transform hover:scale-105">
                             Sewa Sekarang
                         </a>
@@ -560,7 +549,7 @@
 
                 <!-- Car Card 2 - Daihatsu Rocky -->
                 <div x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false"
-                    class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 transition-all duration-500 fade-in-up"
+                    class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold/20 transition-all duration-500 ease-out fade-in-up"
                     style="animation-delay: 0.1s;">
                     <div class="relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
@@ -597,7 +586,7 @@
                         </div>
 
                         <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20sewa%20*Daihatsu%20Rocky*%20dengan%20harga%20mulai%20dari%20299K%20per%20hari.%20Apakah%20masih%20tersedia?"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             class="block w-full text-center bg-gradient-to-r from-gold to-accent text-primary font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-gold/50 transition-all duration-300 transform hover:scale-105">
                             Sewa Sekarang
                         </a>
@@ -606,7 +595,7 @@
 
                 <!-- Car Card 3 - Honda Brio -->
                 <div x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false"
-                    class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 transition-all duration-500 fade-in-up"
+                    class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold/20 transition-all duration-500 ease-out fade-in-up"
                     style="animation-delay: 0.2s;">
                     <div class="relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
@@ -643,7 +632,7 @@
                         </div>
 
                         <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20sewa%20*Honda%20Brio*%20dengan%20harga%20mulai%20dari%20299K%20per%20hari.%20Apakah%20masih%20tersedia?"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             class="block w-full text-center bg-gradient-to-r from-gold to-accent text-primary font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-gold/50 transition-all duration-300 transform hover:scale-105">
                             Sewa Sekarang
                         </a>
@@ -652,7 +641,7 @@
 
                 <!-- Car Card 4 - Toyota Agya -->
                 <div x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false"
-                    class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 transition-all duration-500 fade-in-up"
+                    class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold/20 transition-all duration-500 ease-out fade-in-up"
                     style="animation-delay: 0.3s;">
                     <div class="relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
@@ -689,7 +678,7 @@
                         </div>
 
                         <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20sewa%20*Toyota%20Agya*%20dengan%20harga%20mulai%20dari%20249K%20per%20hari.%20Apakah%20masih%20tersedia?"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             class="block w-full text-center bg-gradient-to-r from-gold to-accent text-primary font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-gold/50 transition-all duration-300 transform hover:scale-105">
                             Sewa Sekarang
                         </a>
@@ -698,7 +687,7 @@
 
                 <!-- Car Card 5 - New Avanza -->
                 <div x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false"
-                    class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 transition-all duration-500 fade-in-up"
+                    class="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-gold/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold/20 transition-all duration-500 ease-out fade-in-up"
                     style="animation-delay: 0.4s;">
                     <div class="relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10">
@@ -735,7 +724,7 @@
                         </div>
 
                         <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20sewa%20*Toyota%20New%20Avanza*%20dengan%20harga%20mulai%20dari%20349K%20per%20hari.%20Apakah%20masih%20tersedia?"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             class="block w-full text-center bg-gradient-to-r from-gold to-accent text-primary font-semibold py-3 rounded-xl hover:shadow-lg hover:shadow-gold/50 transition-all duration-300 transform hover:scale-105">
                             Sewa Sekarang
                         </a>
@@ -881,121 +870,659 @@
                         class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-accent">Pelanggan</span>
                 </h2>
             </div>
+        </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div
-                    class="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 fade-in-up">
-                    <div class="flex items-center space-x-1 text-gold mb-4">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                    </div>
-                    <p class="text-gray-300 mb-6 italic">"Pelayanan sangat memuaskan! Mobil bersih, harga terjangkau,
-                        dan prosesnya cepat. Recommended banget untuk yang mau rental mobil di Batam."</p>
-                    <div class="flex items-center space-x-3">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary">
-                            A
+        <!-- Marquee wrapper — full width, outside max-w container -->
+        <div class="relative overflow-hidden">
+            <!-- Edge fade kiri -->
+            <div class="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                style="background: linear-gradient(90deg, #0a0e27, transparent);"></div>
+            <!-- Edge fade kanan -->
+            <div class="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                style="background: linear-gradient(-90deg, #0a0e27, transparent);"></div>
+
+            <div class="marquee-outer flex" style="width: max-content; animation: marqueeScroll 40s linear infinite;">
+                <div class="flex space-x-6 px-6">
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
                         </div>
-                        <div>
-                            <div class="font-semibold">Ahmad Rizki</div>
-                            <div class="text-sm text-gray-400">Pelanggan Setia</div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Udah 3x sewa di sini, ga pernah
+                            kecewa. Xenia-nya bersih, AC dingin, dikasih tau kondisi mobil sebelum berangkat. Chat WA
+                            dibalas cepet banget."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                R</div>
+                            <div>
+                                <div class="font-semibold text-sm">Rizky Pratama</div>
+                                <div class="text-xs text-gray-400">Warga Nagoya, Batam</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Pertama kali ke Batam, jemput
+                            langsung dari Bandara Hang Nadim. Mobilnya rapi, supirnya hafal jalan. Besok balik ke Batam
+                            pasti sewa di sini lagi."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                D</div>
+                            <div>
+                                <div class="font-semibold text-sm">Dewi Anggraini</div>
+                                <div class="text-xs text-gray-400">Dari Jakarta, liburan ke Batam</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0 text-gray-600" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Sewa Agya seminggu buat kerja.
+                            249K per hari worth banget, irit dan lincah di kota. Ga ada biaya tambahan di akhir, itu
+                            yang paling penting."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                F</div>
+                            <div>
+                                <div class="font-semibold text-sm">Fauzan Hakim</div>
+                                <div class="text-xs text-gray-400">Karyawan swasta, Baloi</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Sewa Avanza buat antar jemput anak
+                            selama seminggu. Mobilnya lega, bersih, dan wangi. Pesan via WA langsung direspon, prosesnya
+                            ga ribet sama sekali."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                S</div>
+                            <div>
+                                <div class="font-semibold text-sm">Sinta Rahayu</div>
+                                <div class="text-xs text-gray-400">Ibu rumah tangga, Bengkong</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Sudah pakai Rendy Rental untuk
+                            keperluan meeting klien di berbagai titik Batam. Selalu tepat waktu, supirnya profesional,
+                            dan mobilnya selalu dalam kondisi prima."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                A</div>
+                            <div>
+                                <div class="font-semibold text-sm">Andi Kurniawan</div>
+                                <div class="text-xs text-gray-400">Pengusaha, Nongsa</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Awalnya takut mahal, tapi ternyata
+                            harganya masuk akal banget buat mahasiswa. Rocky-nya keren, buat jalan-jalan keliling Batam
+                            sama teman-teman. Pasti repeat!"</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                N</div>
+                            <div>
+                                <div class="font-semibold text-sm">Nurul Hidayah</div>
+                                <div class="text-xs text-gray-400">Mahasiswa, Batam Centre</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0 text-gray-600" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Booking malam, pagi mobilnya udah
+                            siap di depan rumah. Tidak perlu ke kantor rental segala. Simple dan praktis. Cuma waktu
+                            kembaliin sempat menunggu sebentar, tapi overall oke."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                H</div>
+                            <div>
+                                <div class="font-semibold text-sm">Hendra Wijaya</div>
+                                <div class="text-xs text-gray-400">Teknisi, Batu Aji</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Untuk kunjungan klien dan site
+                            visit, Rendy Rental jadi pilihan utama tim kami. Armadanya terawat, invoice jelas, tidak ada
+                            hidden cost. Sudah langganan lebih dari setahun."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                M</div>
+                            <div>
+                                <div class="font-semibold text-sm">Maya Putri</div>
+                                <div class="text-xs text-gray-400">Marketing manager, Harbour Bay</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex space-x-6 px-6" aria-hidden="true">
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Udah 3x sewa di sini, ga pernah
+                            kecewa. Xenia-nya bersih, AC dingin, dikasih tau kondisi mobil sebelum berangkat. Chat WA
+                            dibalas cepet banget."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                R</div>
+                            <div>
+                                <div class="font-semibold text-sm">Rizky Pratama</div>
+                                <div class="text-xs text-gray-400">Warga Nagoya, Batam</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Pertama kali ke Batam, jemput
+                            langsung dari Bandara Hang Nadim. Mobilnya rapi, supirnya hafal jalan. Besok balik ke Batam
+                            pasti sewa di sini lagi."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                D</div>
+                            <div>
+                                <div class="font-semibold text-sm">Dewi Anggraini</div>
+                                <div class="text-xs text-gray-400">Dari Jakarta, liburan ke Batam</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0 text-gray-600" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Sewa Agya seminggu buat kerja.
+                            249K per hari worth banget, irit dan lincah di kota. Ga ada biaya tambahan di akhir, itu
+                            yang paling penting."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                F</div>
+                            <div>
+                                <div class="font-semibold text-sm">Fauzan Hakim</div>
+                                <div class="text-xs text-gray-400">Karyawan swasta, Baloi</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Sewa Avanza buat antar jemput anak
+                            selama seminggu. Mobilnya lega, bersih, dan wangi. Pesan via WA langsung direspon, prosesnya
+                            ga ribet sama sekali."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                S</div>
+                            <div>
+                                <div class="font-semibold text-sm">Sinta Rahayu</div>
+                                <div class="text-xs text-gray-400">Ibu rumah tangga, Bengkong</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Sudah pakai Rendy Rental untuk
+                            keperluan meeting klien di berbagai titik Batam. Selalu tepat waktu, supirnya profesional,
+                            dan mobilnya selalu dalam kondisi prima."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                A</div>
+                            <div>
+                                <div class="font-semibold text-sm">Andi Kurniawan</div>
+                                <div class="text-xs text-gray-400">Pengusaha, Nongsa</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Awalnya takut mahal, tapi ternyata
+                            harganya masuk akal banget buat mahasiswa. Rocky-nya keren, buat jalan-jalan keliling Batam
+                            sama teman-teman. Pasti repeat!"</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                N</div>
+                            <div>
+                                <div class="font-semibold text-sm">Nurul Hidayah</div>
+                                <div class="text-xs text-gray-400">Mahasiswa, Batam Centre</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0 text-gray-600" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Booking malam, pagi mobilnya udah
+                            siap di depan rumah. Tidak perlu ke kantor rental segala. Simple dan praktis. Cuma waktu
+                            kembaliin sempat menunggu sebentar, tapi overall oke."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                H</div>
+                            <div>
+                                <div class="font-semibold text-sm">Hendra Wijaya</div>
+                                <div class="text-xs text-gray-400">Teknisi, Batu Aji</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="testi-card flex-shrink-0 w-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center space-x-1 text-gold mb-3">
+                            <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg><svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-5 italic leading-relaxed">"Untuk kunjungan klien dan site
+                            visit, Rendy Rental jadi pilihan utama tim kami. Armadanya terawat, invoice jelas, tidak ada
+                            hidden cost. Sudah langganan lebih dari setahun."</p>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
+                                M</div>
+                            <div>
+                                <div class="font-semibold text-sm">Maya Putri</div>
+                                <div class="text-xs text-gray-400">Marketing manager, Harbour Bay</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="relative py-24 bg-gradient-to-b from-primary to-blue-900/10 overflow-hidden">
+        <!-- Glow effect -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-1/2 left-10 w-72 h-72 bg-gold/20 rounded-full blur-3xl animate-pulse"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="inline-block px-4 py-2 bg-gold/20 text-gold rounded-full text-sm font-semibold mb-4">
+                    Tanya Jawab
+                </span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+                    Pertanyaan <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-accent">Sering Diajukan</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+                    Temukan jawaban cepat untuk pertanyaan umum mengenai sewa mobil di Rendy Rental Batam
+                </p>
+            </div>
+
+            <!-- FAQ Accordion Container -->
+            <div x-data="{ active: null }" class="space-y-4 max-w-3xl mx-auto fade-in-up">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-gold/30 transition-all duration-300 overflow-hidden">
+                    <button @click="active === 1 ? active = null : active = 1" 
+                        class="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none"
+                        :class="active === 1 ? 'text-gold' : 'text-white'">
+                        <span class="font-display font-semibold text-base md:text-lg">Apa saja syarat untuk sewa mobil lepas kunci?</span>
+                        <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 transition-transform duration-300"
+                            :class="active === 1 ? 'rotate-180 border-gold/50 bg-gold/10' : ''">
+                            <svg class="w-4 h-4 transition-colors duration-300" :class="active === 1 ? 'text-gold' : 'text-white'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div x-show="active === 1" x-collapse>
+                        <div class="px-6 pb-6 text-sm md:text-base text-gray-400 leading-relaxed space-y-2">
+                            <p>Untuk penyewa perorangan/wisatawan, syarat utama cukup mengirimkan foto KTP atau SIM A yang aktif saja.</p>
+                            <p>Proses verifikasi cepat dan aman tanpa jaminan dokumen fisik yang berlebihan.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 fade-in-up"
-                    style="animation-delay: 0.1s;">
-                    <div class="flex items-center space-x-1 text-gold mb-4">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                    </div>
-                    <p class="text-gray-300 mb-6 italic">"Sudah langganan di Rendy Rental. Mobilnya selalu bersih dan
-                        wangi. Admin responsif dan helpful banget. Pokoknya the best!"</p>
-                    <div class="flex items-center space-x-3">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary">
-                            S
-                        </div>
-                        <div>
-                            <div class="font-semibold">Siti Nurhaliza</div>
-                            <div class="text-sm text-gray-400">Pengguna Rutin</div>
+                <!-- FAQ Item 2 -->
+                <div class="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-gold/30 transition-all duration-300 overflow-hidden">
+                    <button @click="active === 3 ? active = null : active = 3" 
+                        class="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none"
+                        :class="active === 3 ? 'text-gold' : 'text-white'">
+                        <span class="font-display font-semibold text-base md:text-lg">Bagaimana perhitungan durasi waktu sewa per harinya?</span>
+                        <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 transition-transform duration-300"
+                            :class="active === 3 ? 'rotate-180 border-gold/50 bg-gold/10' : ''">
+                            <svg class="w-4 h-4 transition-colors duration-300" :class="active === 3 ? 'text-gold' : 'text-white'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div x-show="active === 3" x-collapse>
+                        <div class="px-6 pb-6 text-sm md:text-base text-gray-400 leading-relaxed">
+                            Sistem sewa dihitung per hari (24 jam) terhitung sejak serah terima kunci unit mobil. Jika ada keterlambatan pengembalian (overtime), akan dikenakan biaya tambahan sebesar 10% per jam dari harga sewa harian.
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 fade-in-up"
-                    style="animation-delay: 0.2s;">
-                    <div class="flex items-center space-x-1 text-gold mb-4">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path
-                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                    </div>
-                    <p class="text-gray-300 mb-6 italic">"Harga kompetitif, unit bagus, dan pelayanan ramah. Cocok
-                        banget buat yang butuh rental mobil untuk trip keluarga atau bisnis."</p>
-                    <div class="flex items-center space-x-3">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-gold to-accent rounded-full flex items-center justify-center font-bold text-primary">
-                            B
-                        </div>
-                        <div>
-                            <div class="font-semibold">Budi Santoso</div>
-                            <div class="text-sm text-gray-400">Pelanggan Korporat</div>
+                <!-- FAQ Item 3 -->
+                <div class="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-gold/30 transition-all duration-300 overflow-hidden">
+                    <button @click="active === 4 ? active = null : active = 4" 
+                        class="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none"
+                        :class="active === 4 ? 'text-gold' : 'text-white'">
+                        <span class="font-display font-semibold text-base md:text-lg">Apakah harga sewa sudah termasuk bahan bakar (BBM)?</span>
+                        <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 transition-transform duration-300"
+                            :class="active === 4 ? 'rotate-180 border-gold/50 bg-gold/10' : ''">
+                            <svg class="w-4 h-4 transition-colors duration-300" :class="active === 4 ? 'text-gold' : 'text-white'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div x-show="active === 4" x-collapse>
+                        <div class="px-6 pb-6 text-sm md:text-base text-gray-400 leading-relaxed">
+                            Untuk sistem sewa <strong>Lepas Kunci</strong>, harga sewa belum termasuk BBM. Mobil diserahkan dalam kondisi bahan bakar cukup, dan diharapkan dikembalikan dalam kondisi volume bahan bakar yang sama. Untuk sistem <strong>Dengan Supir</strong>, kami menyediakan opsi paket mobil+supir saja atau paket lengkap mobil+supir+BBM.
                         </div>
                     </div>
                 </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-gold/30 transition-all duration-300 overflow-hidden">
+                    <button @click="active === 5 ? active = null : active = 5" 
+                        class="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none"
+                        :class="active === 5 ? 'text-gold' : 'text-white'">
+                        <span class="font-display font-semibold text-base md:text-lg">Bagaimana jika terjadi kendala teknis pada mobil selama masa sewa?</span>
+                        <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 transition-transform duration-300"
+                            :class="active === 5 ? 'rotate-180 border-gold/50 bg-gold/10' : ''">
+                            <svg class="w-4 h-4 transition-colors duration-300" :class="active === 5 ? 'text-gold' : 'text-white'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div x-show="active === 5" x-collapse>
+                        <div class="px-6 pb-6 text-sm md:text-base text-gray-400 leading-relaxed">
+                            Seluruh unit kami selalu melewati pengecekan rutin berkala. Namun apabila terjadi kendala teknis yang tidak terduga, tim support Rendy Rental siap melayani 24/7 dan kami akan segera mengirimkan mekanik atau unit mobil pengganti sejenis tanpa biaya tambahan demi kenyamanan perjalanan Anda.
+                        </div>
+                    </div>
+                </div>         </div>
+
+            </div>
             </div>
         </div>
     </section>
@@ -1015,7 +1542,7 @@
                 Hubungi kami sekarang dan dapatkan penawaran terbaik untuk kebutuhan rental mobil Anda
             </p>
             <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil?"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 class="inline-flex items-center space-x-3 bg-primary text-white font-bold px-10 py-5 rounded-full hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-2xl">
                 <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                     <path
@@ -1044,17 +1571,6 @@
                     pelayanan
                     terbaik untuk perjalanan bisnis, liburan keluarga, maupun keperluan harian Anda.
                 </p>
-
-                <h3 class="text-2xl font-bold text-gold mt-8 mb-4">
-                    Daftar Harga Rental Mobil Batam
-                </h3>
-
-                <ul class="space-y-2 mb-6 text-sm">
-                    <li>🚗 <strong>Toyota Agya</strong>: Mulai Rp 249.000/hari</li>
-                    <li>🚗 <strong>Honda Brio</strong>: Mulai Rp 299.000/hari</li>
-                    <li>🚗 <strong>Daihatsu Rocky</strong>: Mulai Rp 299.000/hari</li>
-                    <li>🚗 <strong>Toyota Avanza / Daihatsu Xenia</strong>: Mulai Rp 349.000/hari</li>
-                </ul>
 
                 <h3 class="text-2xl font-bold text-gold mt-8 mb-4">
                     Area Layanan Sewa Mobil Batam
@@ -1130,6 +1646,7 @@
                         <li><a href="#" class="hover:text-gold transition-colors">Tentang Kami</a></li>
                         <li><a href="#armada" class="hover:text-gold transition-colors">Armada</a></li>
                         <li><a href="#testimoni" class="hover:text-gold transition-colors">Testimoni</a></li>
+                        <li><a href="#faq" class="hover:text-gold transition-colors">FAQ</a></li>
                         <li><a href="#" class="hover:text-gold transition-colors">Syarat & Ketentuan</a></li>
                     </ul>
                 </div>
@@ -1174,7 +1691,7 @@
             <div
                 class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                 <p class="text-gray-400 text-sm text-center md:text-left">
-                    © 2025 Rendy Rental. All rights reserved.
+                    © <span id="copyright-year">2025</span> Rendy Rental. All rights reserved.
                 </p>
                 <div class="flex space-x-6 text-sm text-gray-400">
                     <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
@@ -1186,7 +1703,7 @@
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/6282164447764?text=Halo%20Rendy%20Rental,%20saya%20ingin%20bertanya%20tentang%20sewa%20mobil?"
-        target="_blank"
+        target="_blank" rel="noopener noreferrer"
         class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 z-50 animate-float-soft animate-pulse-glow">
         <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path
