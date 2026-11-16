@@ -1,0 +1,2 @@
+Folder ini digunakan untuk menyimpan file video walkthrough/tur mobil dalam format .mp4.
+Silakan letakkan video Anda di sini (misal: xenia.mp4, rocky.mp4) lalu sesuaikan jalurnya di file src/car-details.js.
