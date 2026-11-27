@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /.netlify/
 
 Sitemap: https://rendyrental-batam.netlify.app/sitemap.xml

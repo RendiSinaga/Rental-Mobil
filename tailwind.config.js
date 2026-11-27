@@ -8,8 +8,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'display': ['Sora', 'sans-serif'],
-                'body': ['Plus Jakarta Sans', 'sans-serif'],
+                'display': ['"Archivo Black"', 'Montserrat', 'sans-serif'],
+                'body': ['Montserrat', 'sans-serif'],
             },
             colors: {
                 'primary': '#0a0e27',

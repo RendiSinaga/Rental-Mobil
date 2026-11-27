@@ -34,7 +34,7 @@ window.CAR_DETAILS_DB = {
         transmission: "Matic",
         price: "Rp 300.000/hari",
         priceNumber: 300000,
-        image: "./images/rocky-kuning.jpeg",
+        image: "./images/rocky-kuning.jpg",
         engine: "1.2L WA-VE Dual VVT-i",
         fuel: "Bensin",
         luggage: "2 Koper Sedang",
@@ -242,7 +242,7 @@ window.FLEET_MODELS = [
         priceNumber: 300000,
         summary: "SUV compact modern dengan ground clearance tinggi, tangguh menjelajah setiap sudut Batam.",
         variants: [
-            { label: "Kuning", image: "./images/rocky-kuning.jpeg", alt: "Daihatsu Rocky Kuning Rendy Rental Batam" },
+            { label: "Kuning", image: "./images/rocky-kuning.jpg", alt: "Daihatsu Rocky Kuning Rendy Rental Batam" },
             { label: "Abu-abu", image: "./images/rocky-abu.jpg", alt: "Daihatsu Rocky Abu-abu Rendy Rental Batam" }
         ],
         specs: ["Kabin Nyaman", "Matic", "Compact SUV", "AC Digital"]

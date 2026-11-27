@@ -5,48 +5,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Booking & Pembayaran QRIS - Rendy Rental Batam</title>
+  
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/web-app-manifest-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0a0e27">
+  <meta name="robots" content="noindex, follow">
   <meta name="description" content="Form pemesanan dan pembayaran online Rendy Rental Batam via QRIS">
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-
-    <link rel="stylesheet" href="./output.css">
-
-  <!-- Tailwind CDN -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['Sora', 'sans-serif'],
-            body: ['Plus Jakarta Sans', 'sans-serif'],
-          },
-          colors: {
-            primary: '#0a0e27',
-            gold: '#fbbf24',
-            accent: '#f59e0b',
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="preload" as="font" href="./fonts/ArchivoBlack.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="./fonts/Montserrat.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./output.css">
+  <script defer src="./i18n.js"></script>
 
   <style>
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #0a0e27;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #fbbf24, #f59e0b);
-      border-radius: 4px;
-    }
-
     @keyframes spin {
       to {
         transform: rotate(360deg);
@@ -78,7 +53,7 @@
     textarea:focus {
       outline: none;
       border-color: #fbbf24;
-      box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+      box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
     }
 
     .step-active {
@@ -98,48 +73,70 @@
   </style>
 </head>
 
-<body class="bg-primary text-white font-body antialiased min-h-screen">
+<body data-i18n-page="booking" class="bg-primary text-white font-body antialiased min-h-screen relative overflow-x-hidden">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Drifting Ambient Orbs -->
+  <div class="fixed inset-0 opacity-20 pointer-events-none overflow-hidden z-0">
+    <div class="animate-orb-a absolute top-10 left-10 w-80 h-80 bg-gold/30 rounded-full blur-3xl"></div>
+    <div class="animate-orb-b absolute bottom-10 right-10 w-96 h-96 bg-blue-500/25 rounded-full blur-3xl"></div>
+  </div>
 
   <!-- Navbar -->
-  <header class="bg-primary/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="index.html" class="flex items-center space-x-3">
-        <img src="./images/logo-hitam.png" alt="Rendy Rental" class="w-10 h-10 rounded-xl">
-        <span class="font-display font-bold text-lg">Rendy Rental</span>
+  <header class="bg-primary/90 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-3">
+      <a href="index.html" class="flex items-center space-x-3 group">
+        <img src="./images/logo-hitam.png" alt="Rendy Rental" width="40" height="40" decoding="async" class="w-10 h-10 object-contain group-hover:rotate-6 transition-transform duration-300">
+        <span class="font-display font-bold text-lg group-hover:text-gold transition-colors">Rendy Rental</span>
       </a>
-      <a href="index.html" class="text-sm text-gray-400 hover:text-gold transition-colors flex items-center space-x-1">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-        <span>Kembali</span>
-      </a>
+      <div class="flex items-center gap-3">
+        <div data-lang-switcher role="group" aria-label="Pilih Bahasa / Select Language"
+          class="inline-flex items-center p-0.5 rounded-full bg-white/[0.07] border border-white/15 backdrop-blur-md">
+          <button type="button" data-set-lang="id" aria-pressed="true"
+            class="px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-200 bg-gold text-primary shadow-sm">
+            ID
+          </button>
+          <button type="button" data-set-lang="en" aria-pressed="false"
+            class="px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-200 text-gray-300 hover:text-white">
+            EN
+          </button>
+        </div>
+        <a href="index.html" class="btn-tactile px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-sm text-gray-300 hover:text-gold hover:border-gold/40 transition-colors flex items-center space-x-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          <span data-i18n="nav.back">Kembali</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-2xl mx-auto px-6 py-12">
+  <main class="relative z-10 max-w-2xl mx-auto px-6 py-12">
 
     <!-- Header -->
     <div class="text-center mb-10 fade-in">
-      <span class="inline-block px-4 py-2 bg-gold/20 text-gold rounded-full text-sm font-semibold mb-4">
+      <span data-i18n="book.badge" class="inline-block px-4 py-2 bg-gold/20 text-gold rounded-full text-sm font-semibold mb-4">
         Bayar Online
       </span>
-      <h1 class="text-3xl md:text-4xl font-display font-bold mb-3">
-        Booking & Pembayaran <span
+      <h1 data-i18n-html="book.heading" class="text-3xl md:text-4xl font-display font-bold mb-3">
+        Booking &amp; Pembayaran <span
           class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-accent">QRIS</span>
       </h1>
-      <p class="text-gray-400">Isi form di bawah, lalu scan QRIS untuk konfirmasi booking.</p>
+      <p data-i18n="book.subtitle" class="text-gray-400">Isi form di bawah, lalu scan QRIS untuk konfirmasi booking.</p>
     </div>
 
     <!-- Step Indicator -->
     <div class="flex items-center justify-center space-x-3 mb-10 fade-in">
       <div id="step1-indicator" class="flex items-center space-x-2">
         <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold step-active">1</div>
-        <span class="text-sm font-medium text-gold">Data Booking</span>
+        <span data-i18n="book.step1" class="text-sm font-medium text-gold">Data Booking</span>
       </div>
       <div class="w-12 h-px bg-white/20"></div>
       <div id="step2-indicator" class="flex items-center space-x-2">
         <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold step-inactive">2</div>
-        <span class="text-sm font-medium text-gray-400">Pembayaran</span>
+        <span data-i18n="book.step2" class="text-sm font-medium text-gray-400">Pembayaran</span>
       </div>
     </div>
 
@@ -147,39 +144,39 @@
     <!-- STEP 1: FORM BOOKING     -->
     <!-- ======================== -->
     <div id="step1" class="fade-in">
-      <div class="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl border border-white/10 p-8">
+      <div class="spotlight-card bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl border border-white/10 hover:border-gold/30 p-8 shadow-2xl">
 
         <!-- Pilih Mobil -->
         <div class="mb-6">
-          <label class="block text-sm font-semibold text-gray-300 mb-2">Pilih Mobil <span
+          <label data-i18n-html="book.carLabel" class="block text-sm font-semibold text-gray-300 mb-2">Pilih Mobil <span
               class="text-red-400">*</span></label>
           <select id="mobil"
             class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:border-gold transition-colors">
-              <option value="" disabled selected class="bg-primary">-- Pilih Mobil --</option>
+              <option value="" disabled selected data-i18n="book.carPlaceholder" class="bg-primary">-- Pilih Mobil --</option>
               <option value="Mitsubishi Xpander|350000" class="bg-primary">Mitsubishi Xpander - Rp 350.000/hari</option>
-              <option value="Daihatsu Rocky (Kuning)|300000" class="bg-primary">Daihatsu Rocky (Kuning) - Rp 300.000/hari</option>
-              <option value="Daihatsu Rocky (Abu-abu)|300000" class="bg-primary">Daihatsu Rocky (Abu-abu) - Rp 300.000/hari</option>
+              <option value="Daihatsu Rocky Yellow|300000" class="bg-primary">Daihatsu Rocky Yellow - Rp 300.000/hari</option>
+              <option value="Daihatsu Rocky Grey|300000" class="bg-primary">Daihatsu Rocky Grey - Rp 300.000/hari</option>
               <option value="Toyota New Avanza|300000" class="bg-primary">Toyota New Avanza - Rp 300.000/hari</option>
-              <option value="Daihatsu New Xenia (Hitam)|300000" class="bg-primary">Daihatsu New Xenia (Hitam) - Rp 300.000/hari</option>
-              <option value="Daihatsu New Xenia (Silver)|300000" class="bg-primary">Daihatsu New Xenia (Silver) - Rp 300.000/hari</option>
-              <option value="Honda Brio (Merah)|300000" class="bg-primary">Honda Brio (Merah) - Rp 300.000/hari</option>
-              <option value="Honda Brio (Abu-abu)|300000" class="bg-primary">Honda Brio (Abu-abu) - Rp 300.000/hari</option>
-              <option value="Toyota Agya (Merah)|250000" class="bg-primary">Toyota Agya (Merah) - Rp 250.000/hari</option>
-              <option value="Toyota Agya (Putih)|250000" class="bg-primary">Toyota Agya (Putih) - Rp 250.000/hari</option>
-              <option value="Toyota Calya|250000" class="bg-primary">Toyota Calya - Rp 250.000/hari</option>
+              <option value="Daihatsu New Xenia Black|300000" class="bg-primary">Daihatsu New Xenia Black - Rp 300.000/hari</option>
+              <option value="Daihatsu New Xenia Silver|300000" class="bg-primary">Daihatsu New Xenia Silver - Rp 300.000/hari</option>
+              <option value="Honda Brio Red|300000" class="bg-primary">Honda Brio Red - Rp 300.000/hari</option>
+              <option value="Honda Brio Grey|300000" class="bg-primary">Honda Brio Grey - Rp 300.000/hari</option>
+              <option value="Toyota Agya Red|250000" class="bg-primary">Toyota Agya Red - Rp 250.000/hari</option>
+              <option value="Toyota Agya White|250000" class="bg-primary">Toyota Agya White - Rp 250.000/hari</option>
+              <option value="Toyota Calya Orange|250000" class="bg-primary">Toyota Calya Orange - Rp 250.000/hari</option>
             </select>
         </div>
 
         <!-- Tipe Sewa -->
         <div class="mb-6">
-          <label class="block text-sm font-semibold text-gray-300 mb-2">Tipe Sewa <span
+          <label data-i18n-html="book.typeLabel" class="block text-sm font-semibold text-gray-300 mb-2">Tipe Sewa <span
               class="text-red-400">*</span></label>
           <div>
             <label class="cursor-pointer block">
               <input type="radio" name="tipeSewa" value="Lepas Kunci" class="sr-only" checked>
               <div class="tipe-card border-2 border-gold/50 bg-gold/10 rounded-xl p-4 text-center transition-all">
                 <div class="text-2xl mb-1">🔑</div>
-                <div class="text-sm font-semibold">Lepas Kunci (24 Jam)</div>
+                <div data-i18n="book.typeCard" class="text-sm font-semibold">Lepas Kunci (24 Jam)</div>
               </div>
             </label>
           </div>
@@ -187,14 +184,14 @@
         <!-- Tanggal & Durasi -->
         <div class="grid grid-cols-2 gap-4 mb-6">
           <div>
-            <label class="block text-sm font-semibold text-gray-300 mb-2">Tanggal Mulai <span
+            <label data-i18n-html="book.startDate" class="block text-sm font-semibold text-gray-300 mb-2">Tanggal Mulai <span
                 class="text-red-400">*</span></label>
             <input type="date" id="tanggalMulai"
               class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:border-gold transition-colors"
               style="color-scheme: dark;">
           </div>
           <div>
-            <label class="block text-sm font-semibold text-gray-300 mb-2">Jumlah Hari <span
+            <label data-i18n-html="book.daysLabel" class="block text-sm font-semibold text-gray-300 mb-2">Jumlah Hari <span
                 class="text-red-400">*</span></label>
             <select id="jumlahHari"
               class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:border-gold transition-colors">
@@ -212,9 +209,9 @@
 
         <!-- Data Customer -->
         <div class="mb-6">
-          <label class="block text-sm font-semibold text-gray-300 mb-2">Nama Lengkap <span
+          <label data-i18n-html="book.nameLabel" class="block text-sm font-semibold text-gray-300 mb-2">Nama Lengkap <span
               class="text-red-400">*</span></label>
-          <input type="text" id="namaCustomer" placeholder="Masukkan nama lengkap"
+          <input type="text" id="namaCustomer" data-i18n-placeholder="book.namePh" placeholder="Masukkan nama lengkap"
             class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:border-gold transition-colors">
         </div>
 
@@ -223,11 +220,11 @@
               class="text-red-400">*</span></label>
           <input type="email" id="email" placeholder="email@contoh.com"
             class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:border-gold transition-colors">
-          <p class="text-xs text-gray-500 mt-1">Link pembayaran akan dikirim ke email ini</p>
+          <p data-i18n="book.emailHelp" class="text-xs text-gray-500 mt-1">Link pembayaran akan dikirim ke email ini</p>
         </div>
 
         <div class="mb-8">
-          <label class="block text-sm font-semibold text-gray-300 mb-2">No. WhatsApp <span
+          <label data-i18n-html="book.waLabel" class="block text-sm font-semibold text-gray-300 mb-2">No. WhatsApp <span
               class="text-red-400">*</span></label>
           <input type="tel" id="noHp" placeholder="08xxxxxxxxxx"
             class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:border-gold transition-colors">
@@ -235,18 +232,18 @@
 
         <!-- Ringkasan Harga -->
         <div id="hargaRingkasan" class="hidden mb-8 bg-gold/10 border border-gold/30 rounded-2xl p-5">
-          <div class="text-sm font-semibold text-gold mb-3">📋 Ringkasan Pesanan</div>
+          <div data-i18n="book.summaryTitle" class="text-sm font-semibold text-gold mb-3">📋 Ringkasan Pesanan</div>
           <div class="space-y-2 text-sm text-gray-300">
             <div class="flex justify-between">
-              <span>Mobil</span>
+              <span data-i18n="book.sumCar">Mobil</span>
               <span id="ringkasan-mobil" class="font-medium text-white">-</span>
             </div>
             <div class="flex justify-between">
-              <span>Durasi</span>
+              <span data-i18n="book.sumDur">Durasi</span>
               <span id="ringkasan-hari" class="font-medium text-white">-</span>
             </div>
             <div class="flex justify-between">
-              <span>Harga/hari</span>
+              <span data-i18n="book.sumRate">Harga/hari</span>
               <span id="ringkasan-harga-per-hari" class="font-medium text-white">-</span>
             </div>
             <div class="border-t border-gold/20 pt-2 flex justify-between">
@@ -261,16 +258,16 @@
           class="hidden mb-4 bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-red-400 text-sm"></div>
 
         <!-- Submit Button -->
-        <button id="btnLanjutBayar" onclick="lanjutKePembayaran()"
-          class="w-full bg-gradient-to-r from-gold to-accent text-primary font-bold py-4 rounded-xl hover:shadow-2xl hover:shadow-gold/30 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center space-x-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="btnLanjutBayar" onclick="lanjutKePembayaran()" data-spark
+          class="btn-tactile btn-sheen w-full bg-gradient-to-r from-gold to-accent text-primary font-bold py-4 rounded-xl hover:shadow-2xl hover:shadow-gold/35 transition-all duration-300 flex items-center justify-center space-x-2">
+          <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>
-          <span>Lanjut ke Pembayaran QRIS</span>
+          <span data-i18n="book.submitBtn" class="relative z-10">Lanjut ke Pembayaran QRIS</span>
         </button>
 
-        <p class="text-center text-xs text-gray-500 mt-4">
+        <p data-i18n-html="book.xenditNote" class="text-center text-xs text-gray-500 mt-4">
           🔒 Pembayaran aman diproses oleh <strong class="text-gray-400">Xendit</strong>
         </p>
       </div>
@@ -291,8 +288,8 @@
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
           </div>
-          <h2 class="text-2xl font-display font-bold mb-3">Memproses Pembayaran...</h2>
-          <p class="text-gray-400">Sedang membuat invoice QRIS untuk Anda</p>
+          <h2 data-i18n="book.loadingTitle" class="text-2xl font-display font-bold mb-3">Memproses Pembayaran...</h2>
+          <p data-i18n="book.loadingDesc" class="text-gray-400">Sedang membuat invoice QRIS untuk Anda</p>
         </div>
 
         <!-- Success - Redirect State -->
@@ -302,8 +299,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 class="text-2xl font-display font-bold mb-3 text-green-400">Invoice Siap! 🎉</h2>
-          <p class="text-gray-400 mb-6">Anda akan diarahkan ke halaman pembayaran Xendit...</p>
+          <h2 data-i18n="book.readyTitle" class="text-2xl font-display font-bold mb-3 text-green-400">Invoice Siap! 🎉</h2>
+          <p data-i18n="book.readyDesc" class="text-gray-400 mb-6">Anda akan diarahkan ke halaman pembayaran Xendit...</p>
 
           <div class="bg-white/5 rounded-2xl p-5 mb-6 text-left space-y-3">
             <div class="flex justify-between text-sm">
@@ -311,21 +308,21 @@
               <span id="display-invoiceId" class="font-mono text-gold text-xs"></span>
             </div>
             <div class="flex justify-between text-sm">
-              <span class="text-gray-400">Total Bayar</span>
+              <span data-i18n="book.totalPay" class="text-gray-400">Total Bayar</span>
               <span id="display-total" class="font-bold text-white text-lg"></span>
             </div>
             <div class="flex justify-between text-sm">
-              <span class="text-gray-400">Berlaku hingga</span>
+              <span data-i18n="book.expires" class="text-gray-400">Berlaku hingga</span>
               <span id="display-expiry" class="text-white"></span>
             </div>
           </div>
 
-          <a id="btnBukaBayar" href="#" target="_blank"
-            class="block w-full bg-gradient-to-r from-gold to-accent text-primary font-bold py-4 rounded-xl hover:shadow-2xl hover:shadow-gold/30 transition-all duration-300 text-center text-lg mb-3">
-            🔳 Bayar Sekarang (QRIS)
+          <a id="btnBukaBayar" href="#" target="_blank" data-spark
+            class="btn-tactile btn-sheen block w-full bg-gradient-to-r from-gold to-accent text-primary font-bold py-4 rounded-xl hover:shadow-2xl hover:shadow-gold/30 transition-all duration-300 text-center text-lg mb-3">
+            <span data-i18n="book.payNow" class="relative z-10">🔳 Bayar Sekarang (QRIS)</span>
           </a>
 
-          <p class="text-xs text-gray-500">
+          <p data-i18n="book.redirectHint" class="text-xs text-gray-500">
             Jika tidak otomatis, klik tombol di atas untuk membuka halaman pembayaran
           </p>
         </div>
@@ -337,10 +334,10 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </div>
-          <h2 class="text-2xl font-display font-bold mb-3 text-red-400">Gagal Membuat Invoice</h2>
+          <h2 data-i18n="book.errTitle" class="text-2xl font-display font-bold mb-3 text-red-400">Gagal Membuat Invoice</h2>
           <p id="errorDetailMsg" class="text-gray-400 mb-6"></p>
-          <button onclick="kembaliKeForm()"
-            class="w-full bg-white/10 border border-white/20 text-white font-semibold py-3 rounded-xl hover:bg-white/20 transition-colors">
+          <button onclick="kembaliKeForm()" data-spark data-i18n="book.backForm"
+            class="btn-tactile w-full bg-white/10 border border-white/20 text-white font-semibold py-3 rounded-xl hover:bg-white/20 transition-colors">
             ← Kembali ke Form
           </button>
         </div>
@@ -352,8 +349,8 @@
 
   <!-- Footer minimal -->
   <footer class="text-center py-8 text-gray-600 text-sm">
-    © 2025 Rendy Rental Batam ·
-    <a href="https://wa.me/6282164447764" class="hover:text-gold transition-colors">Bantuan via WhatsApp</a>
+    © 2026 Rendy Rental Batam ·
+    <a href="https://wa.me/6282164447764" data-i18n="book.waHelp" class="hover:text-gold transition-colors">Bantuan via WhatsApp</a>
   </footer>
 
   <script>
@@ -374,7 +371,8 @@
       const total = hargaPerHari * jumlahHari;
 
       document.getElementById('ringkasan-mobil').textContent = namaMobil;
-      document.getElementById('ringkasan-hari').textContent = jumlahHari + ' hari';
+      const isEn = window.RendyI18n && window.RendyI18n.isEn();
+      document.getElementById('ringkasan-hari').textContent = jumlahHari + (isEn ? (jumlahHari === 1 ? ' day' : ' days') : ' hari');
       document.getElementById('ringkasan-harga-per-hari').textContent = 'Rp ' + hargaPerHari.toLocaleString('id-ID');
       document.getElementById('ringkasan-total').textContent = 'Rp ' + total.toLocaleString('id-ID');
       document.getElementById('hargaRingkasan').classList.remove('hidden');
@@ -382,6 +380,7 @@
 
     document.getElementById('mobil').addEventListener('change', updateRingkasan);
     document.getElementById('jumlahHari').addEventListener('change', updateRingkasan);
+    window.addEventListener('rendy:lang-change', updateRingkasan);
 
     // Set tanggal minimal = hari ini
     const today = new Date().toISOString().split('T')[0];
@@ -420,11 +419,12 @@
       // Validasi
       errorMsg.classList.add('hidden');
 
-      if (!mobilValue) return showError('Silakan pilih mobil terlebih dahulu.');
-      if (!namaCustomer) return showError('Nama lengkap wajib diisi.');
-      if (!email || !email.includes('@')) return showError('Email tidak valid.');
-      if (!noHp || noHp.length < 10) return showError('Nomor WhatsApp tidak valid.');
-      if (!tanggalMulai) return showError('Tanggal mulai wajib diisi.');
+      const isEn = window.RendyI18n && window.RendyI18n.isEn();
+      if (!mobilValue) return showError(isEn ? 'Please select a car first.' : 'Silakan pilih mobil terlebih dahulu.');
+      if (!namaCustomer) return showError(isEn ? 'Full name is required.' : 'Nama lengkap wajib diisi.');
+      if (!email || !email.includes('@')) return showError(isEn ? 'Invalid email address.' : 'Email tidak valid.');
+      if (!noHp || noHp.length < 10) return showError(isEn ? 'Invalid WhatsApp number.' : 'Nomor WhatsApp tidak valid.');
+      if (!tanggalMulai) return showError(isEn ? 'Start date is required.' : 'Tanggal mulai wajib diisi.');
 
       const [namaMobil, hargaStr] = mobilValue.split('|');
       const hargaPerHari = parseInt(hargaStr);

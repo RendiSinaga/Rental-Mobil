@@ -1,15 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://rendyrental-batam.netlify.app/</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://rendyrental-batam.netlify.app/images/thumbnail-google-1x1.jpg</image:loc>
+      <image:title>Rental Mobil Batam - Rendy Rental</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rendyrental-batam.netlify.app/images/og-image-rendy-rental.jpg</image:loc>
+      <image:title>Rendy Rental Batam - Sewa Mobil Lepas Kunci</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rendyrental-batam.netlify.app/images/xpander-hitam.jpg</image:loc>
+      <image:title>Sewa Mitsubishi Xpander Batam</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rendyrental-batam.netlify.app/images/rocky-kuning.jpg</image:loc>
+      <image:title>Sewa Daihatsu Rocky Kuning Batam</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rendyrental-batam.netlify.app/images/xenia-hitam.jpg</image:loc>
+      <image:title>Sewa Daihatsu New Xenia Batam</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rendyrental-batam.netlify.app/images/brio-merah.jpg</image:loc>
+      <image:title>Sewa Honda Brio Merah Batam</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rendyrental-batam.netlify.app/images/agya-putih.jpg</image:loc>
+      <image:title>Sewa Toyota Agya Putih Batam</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rendyrental-batam.netlify.app/images/calya-oranye.jpg</image:loc>
+      <image:title>Sewa Toyota Calya Batam</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rendyrental-batam.netlify.app/daftar-mobil.html</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rendyrental-batam.netlify.app/images/new-avanza.jpg</image:loc>
+      <image:title>Sewa Toyota New Avanza Batam</image:title>
+    </image:image>
   </url>
 </urlset>

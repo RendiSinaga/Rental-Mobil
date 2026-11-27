@@ -5,14 +5,14 @@
 
 # 1. Environment & Kredensial Rahasia (SANGAT KRUSIAL - JANGAN DI-PUSH)
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
 *.env
+*.secret
 *.pem
 *.key
 *.cert
+*.p12
+*.pfx
 credentials.json
 token.json
 
@@ -26,6 +26,8 @@ token.json
 *.sqlite3
 *.db
 *.rdb
+backups/
+dumps/
 
 # 3. File Media Berat / Video Mentah (>10MB)
 # Video promo sebaiknya di-host di Cloud Storage, CDN, atau YouTube / Vimeo
@@ -76,6 +78,15 @@ desktop.ini
 logs/
 *.log
 
-# 9. Scratch & Catatan Agent / Internal Antigravity
+# 9. Dokumen Internal Bisnis, PRD, Panduan AI & Catatan Agent (Lokal Saja)
+data-terkunci.md
+prd-website-rendy-rental.md
+prompt-pembuka-antigravity.md
+SKILL-website_rendy_rental.md
+standar-desain.md
+.gemini/
+.agent/
+.claude/
+.cursor/
 scratch/
 brain/

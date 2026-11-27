@@ -1,0 +1,14 @@
+{
+  "name": "Rendy Rental Batam",
+  "short_name": "Rendy Rental",
+  "icons": [
+    {
+      "src": "/images/logo-situs-rendy-rental.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0a0e27",
+  "background_color": "#0a0e27",
+  "display": "standalone"
+}
